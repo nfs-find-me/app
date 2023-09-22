@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .btn-primary {
+      @apply rounded-30 text-center border-solid border-2 border-blue font-bold text-white-secondary bg-blue p-3 w-36 hover:bg-transparent hover:cursor-pointer hover:text-blue;
+    }
+
+    .btn-secondary {
+        @apply rounded-30 text-center border-solid border-2 border-blue font-bold text-blue bg-white-secondary p-3 w-36 hover:bg-blue hover:cursor-pointer hover:text-white-secondary;
+    }
+  }

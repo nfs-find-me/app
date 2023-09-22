@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./src/**/*.{html,js,svelte,ts}'],
+  content: ['./src/**/*.{html,js,svelte,ts}', './src/style/**/*.css'],
   theme: {
     screens: {
       sm: '480px',
@@ -22,8 +22,10 @@ export default {
     fontSize: {
       sm: '12px',
       md: '16px',
-      lg: '24px',
-      xl: '30px'
+      lg: '20px',
+      xl: '24px',
+      xxl: '30px',
+      35: '35px'
     },
     fontFamily: {
       display: 'Montserrat, sans-serif',
