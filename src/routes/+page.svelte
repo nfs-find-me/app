@@ -1,3 +1,5 @@
-<h1 class="text-3xl font-bold underline font-display ">
-    Hello world!
-</h1>
+<script>
+	import NavBar from "../componants/navBar.svelte";
+</script>
+
+<NavBar isLogged={true}></NavBar>
