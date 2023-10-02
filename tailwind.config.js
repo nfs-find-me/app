@@ -7,6 +7,7 @@ export default {
       'tablet-max': {'max': '768px'},
       'laptop': '1024px',
       'desktop': '1280px',
+      'desktop-max': {'max': '1280px'},
     },
     colors: {
       transparent: 'transparent',
