@@ -1,5 +1,5 @@
 <script>
-	import NavBar from "../components/navBar.svelte";
+	import NavBar from '../components/navBar.svelte';
 </script>
 
-<NavBar isLogged={true}></NavBar>
+<NavBar isLogged={false} />
