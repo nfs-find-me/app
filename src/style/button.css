@@ -3,11 +3,16 @@
 @tailwind utilities;
 
 @layer components {
-    .btn-primary {
-      @apply rounded-30 text-center border-solid border-2 border-blue font-bold text-white-secondary bg-blue p-3 w-36 hover:bg-transparent hover:cursor-pointer hover:text-blue;
+	.btn {
+		@apply border p-3 w-36 border-blue font-bold  rounded-full  text-center border-solid transition duration-300 ease-in-out 
+		hover:cursor-pointer hover:shadow-lg; 
+	}
+	.btn-primary {
+    	@apply   text-white-secondary bg-blue
+		hover:bg-blue-dark hover:cursor-pointer;
+    }
+    .btn-secondary {
+        @apply bg-white-secondary text-blue hover:bg-blue-white-light;
     }
 
-    .btn-secondary {
-        @apply rounded-30 text-center border-solid border-2 border-blue font-bold text-blue bg-white-secondary p-3 w-36 hover:bg-blue hover:cursor-pointer hover:text-white-secondary;
-    }
-  }
+}

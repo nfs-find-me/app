@@ -1,5 +1,6 @@
 <script>
-    import "../style/button.css";
-  </script>
-  
-  <slot />
+	import '../style/button.css';
+	import '../style/input.css';
+</script>
+
+<slot />
