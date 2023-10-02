@@ -8,6 +8,8 @@ export default {
       'laptop': '1024px',
       'desktop': '1280px',
       'desktop-max': {'max': '1280px'},
+      'desktop-xl': '1440px',
+      'desktop-xl-max': {'max': '1440px'}
     },
     colors: {
       transparent: 'transparent',
@@ -27,12 +29,20 @@ export default {
       xl: '24px',
       xxl: '30px',
       40: '40px',
+      50: '50px',
       60: '60px'
     },
     fontFamily: {
       display: 'Montserrat, sans-serif',
     },
     extend: {
+      width: {
+        '233': '233px'
+      },
+      height: {
+        '90': '90vh',
+        '326': '326px',
+      },
       borderRadius: {
         '15': '15px',
         '30': '30px',
