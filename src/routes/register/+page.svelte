@@ -54,7 +54,7 @@
 		/>
 
 		<p class="text-sm m-8 text-start">
-			Déjà un compte ? <a class="text-blue underline" href="/login"
+			Déjà un compte ? <a class="text-blue underline cursor-pointer" href="/login"
 				>Cliquez-ici pour vous connecter</a
 			>
 		</p>

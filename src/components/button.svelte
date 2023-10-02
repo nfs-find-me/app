@@ -4,6 +4,8 @@
 	export let link = '#';
 </script>
 
-<button class="btn" class:btn-primary={fill} class:btn-secondary={!fill}>
-	<a href={'/' + link}>{text}</a>
-</button>
+<a href={'/' + link}>
+	<button class="btn" class:btn-primary={fill} class:btn-secondary={!fill}>
+		{text}
+	</button>
+</a>

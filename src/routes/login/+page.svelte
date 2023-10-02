@@ -34,7 +34,7 @@
 		/>
 
 		<p class="text-sm m-8 text-start">
-			Pas de compte ? <a class="text-blue underline" href="/register"
+			Pas de compte ? <a class="text-blue underline cursor-pointer" href="/register"
 				>Cliquez ici pour vous inscrire</a
 			>
 		</p>

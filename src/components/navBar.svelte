@@ -1,14 +1,16 @@
 <script lang="ts">
+	import Button from './button.svelte';
+
 	export let isLogged: Boolean;
 </script>
 
 <!-- Desktop Nav -->
 
 <nav class="tablet-max:hidden flex justify-between items-center p-4">
-	<div class="flex flex-row gap-2 items-center hover:cursor-pointer">
+	<a href="/" class="flex flex-row gap-2 items-center hover:cursor-pointer">
 		<img class="w-20" src="favicon.svg" alt="logo" />
 		<h2 class="text-xxl font-bold text-blue">FindMe</h2>
-	</div>
+	</a>
 
 	<ul class="flex gap-6 font-bold text-lg">
 		<li class="hover:cursor-pointer hover:text-blue">Accueil</li>
@@ -29,8 +31,8 @@
 				alt="image de profil"
 			/>
 		{:else}
-			<button class="btn-primary"><a href="/login">Se connecter</a></button>
-			<button class="btn-secondary">S'inscrire</button>
+			<Button link={'login'} fill={true} text={'Se connecter'} />
+			<Button link={'register'} fill={false} text={"S'inscrire"} />
 		{/if}
 	</div>
 </nav>
