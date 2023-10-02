@@ -7,32 +7,38 @@
 
 <NavBar isLogged={true} />
 
-<section class="wrap">
+<section
+	class="container mx-auto bg-center flex flex-col justify-center items-center h-screen max-h-[80vh]"
+>
 	<LogoTitle title="connexion" />
 
-	<Input
-		config={{
-			type: 'text',
-			id: 'email',
-			name: 'email',
-			label: "Email ou nom d'utilisateur",
-			text: ''
-		}}
-	/>
+	<form class="flex flex-col items-center justify-center">
+		<Input
+			config={{
+				type: 'text',
+				id: 'email',
+				name: 'email',
+				label: "Email ou nom d'utilisateur",
+				text: ''
+			}}
+		/>
 
-	<Input
-		config={{
-			type: 'password',
-			id: 'password',
-			name: 'password',
-			label: 'Mot de passe',
-			text: ''
-		}}
-	/>
+		<Input
+			config={{
+				type: 'password',
+				id: 'password',
+				name: 'password',
+				label: 'Mot de passe',
+				text: ''
+			}}
+		/>
 
-	<p class="text-sm m-8">Pas de compte ? <a href="/register">Cliquez ici pour vous inscrire</a></p>
+		<p class="text-sm m-8 text-start">
+			Pas de compte ? <a href="/register">Cliquez ici pour vous inscrire</a>
+		</p>
 
-	<Button fill={true} text={'Se connecter'} />
+		<Button fill={true} text={'Se connecter'} />
+	</form>
 </section>
 
 <style>

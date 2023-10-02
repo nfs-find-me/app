@@ -11,9 +11,9 @@
 
 <div class="relative z-0 w-full mb-6 group">
 	<input
-		type="email"
-		name="floating_email"
-		id="floating_email"
+		type={config.type}
+		name={config.name}
+		id={config.id}
 		class="block py-2.5 px-0 w-full text-sm text-black
 		bg-transparent border-0 border-b-2 border-black
 		appearance-none
@@ -22,7 +22,7 @@
 		required={config.isRequired}
 	/>
 	<label
-		for="floating_email"
+		for={config.name}
 		class="peer-focus:font-medium absolute text-md text-gray-500 dark:text-gray-400
 		duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0]
 		peer-focus:left-0 peer-focus:text-blue
