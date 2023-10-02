@@ -1,6 +1,6 @@
 <script lang="ts">
     export let isLogged:Boolean;
-  </script>
+</script>
 
 <!-- Desktop Nav -->
   
