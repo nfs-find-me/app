@@ -12,7 +12,7 @@
 >
 	<LogoTitle title="connexion" />
 
-	<form class="flex flex-col items-center justify-center">
+	<form class="flex flex-col items-center justify-center max-w-400">
 		<Input
 			config={{
 				type: 'text',
@@ -34,9 +34,7 @@
 		/>
 
 		<p class="text-sm m-8 text-start">
-			Pas de compte ? <a class="text-blue underline cursor-pointer" href="/register"
-				>Cliquez ici pour vous inscrire</a
-			>
+			Pas de compte ? <a class="action" href="/register">Cliquez ici pour vous inscrire</a>
 		</p>
 
 		<Button fill={true} text={'Se connecter'} />
