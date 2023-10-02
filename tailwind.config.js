@@ -3,10 +3,10 @@ export default {
   content: ['./src/**/*.{html,js,svelte,ts}', './src/style/**/*.css'],
   theme: {
     screens: {
-      sm: '480px',
-      md: '768px',
-      lg: '976px',
-      xl: '1440px',
+      'tablet': '768px',
+      'tablet-max': {'max': '768px'},
+      'laptop': '1024px',
+      'desktop': '1280px',
     },
     colors: {
       transparent: 'transparent',
@@ -25,7 +25,8 @@ export default {
       lg: '20px',
       xl: '24px',
       xxl: '30px',
-      35: '35px'
+      40: '40px',
+      60: '60px'
     },
     fontFamily: {
       display: 'Montserrat, sans-serif',
