@@ -18,13 +18,13 @@
                 <ul class="flex flex-col gap-2 font-semibold desktop-max:items-center">
                     <li><a href="#"></a>Accueil</li>
                     {#if isLogged }
-                        <li><a href="#"></a>Profil</li>
-                        <li><a href="#"></a>Explorer</li>
-                        <li><a href="#"></a>Déconnexion</li>
+                        <li><a href="#">Profil</a></li>
+                        <li><a href="#">Explorer</a></li>
+                        <li><a href="#">Déconnexion</a></li>
                     {:else}
-                        <li><a href="#"></a>Inscription</li>
-                        <li><a href="#"></a>Connexion</li>
-                        <li><a href="#"></a>A propos</li>
+                        <li><a href="#">Inscription</a></li>
+                        <li><a href="#">Connexion</a></li>
+                        <li><a href="#">A propos</a></li>
                     {/if}
                 </ul>
             </div>
@@ -32,8 +32,8 @@
             <div class="flex flex-col gap-4 desktop-max:items-center">
                 <h3 class="text-lg font-bold text-blue">Confidentialité</h3>
                 <ul class="flex flex-col gap-2 font-semibold desktop-max:items-center">
-                    <li><a href="#"></a>Politique de confidentialité</li>
-                    <li><a href="#"></a>Mentions légales</li>
+                    <li><a href="#">Politique de confidentialité</a></li>
+                    <li><a href="#">Mentions légales</a></li>
                 </ul>
             </div>
 
@@ -41,14 +41,14 @@
                 <h3 class="text-lg font-bold text-blue">Contact</h3>
                 <ul class="flex flex-col gap-2 font-semibold desktop-max:items-center">
                     <li>
-                        <a href="">
+                        <a href="#">
                             <i class="fa-regular fa-envelope"></i>
                             <span>FindMe@contact.com</span>
                         </a>
                     </li>
 
                     <li>
-                        <a href="">
+                        <a href="#">
                             <i class="fa-solid fa-mobile-screen-button"></i>
                             <span>0664992305</span>
                         </a>
