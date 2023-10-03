@@ -1,7 +1,6 @@
 <script lang="ts">
 	import Button from './button.svelte';
-
-	export let isLogged: Boolean;
+  export let isLogged:Boolean;
 </script>
 
 <!-- Desktop Nav -->
