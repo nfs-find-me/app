@@ -1,8 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./src/**/*.{html,js,svelte,ts}', './src/style/**/*.css'],
-  theme: {
-    screens: {
+	content: ['./src/**/*.{html,js,svelte,ts}', './src/style/**/*.css'],
+	theme: {
+		screens: {
       'tablet': '768px',
       'tablet-max': {'max': '768px'},
       'laptop': '1024px',
@@ -10,19 +10,21 @@ export default {
       'desktop-max': {'max': '1280px'},
       'desktop-xl': '1440px',
       'desktop-xl-max': {'max': '1440px'}
-    },
-    colors: {
+		},
+		colors: {
       transparent: 'transparent',
       'white': '#FFFFFF',
       'white-secondary': '#FAF8FF',
       'green': '#7FD1AE',
       'blue': '#0390BF',
+      'blue-dark': '#0388B5',
+			'blue-white-light': '#EEF8FC',
       'black': '#000000',
       'text-contrast': '#112A46',
       'yellow': "#FFFD92",
       'alert': '#C31952'
-    },
-    fontSize: {
+		},
+		fontSize: {
       sm: '12px',
       md: '16px',
       lg: '20px',
@@ -31,11 +33,11 @@ export default {
       40: '40px',
       50: '50px',
       60: '60px'
-    },
-    fontFamily: {
-      display: 'Montserrat, sans-serif',
-    },
-    extend: {
+		},
+		fontFamily: {
+			display: 'Montserrat, sans-serif'
+		},
+		extend: {
       width: {
         '233': '233px'
       },
@@ -43,13 +45,13 @@ export default {
         '90': '90vh',
         '326': '326px',
       },
-      borderRadius: {
-        '15': '15px',
-        '30': '30px',
-        '40': '40px',
-        '50': '50px',
-      }
-    }
-  },
-  plugins: [],
-}
+			borderRadius: {
+				15: '15px',
+				30: '30px',
+				40: '40px',
+				50: '50px'
+			}
+		}
+	},
+	plugins: []
+};

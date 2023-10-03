@@ -9,7 +9,7 @@
         { src: 'image_6.webp', handle: 'image_6' },
         { src: 'image_8.webp', handle: 'image_8' },
         { src: 'image_9.webp', handle: 'image_9' },
-    ];
+  ];
 
 </script>
 
