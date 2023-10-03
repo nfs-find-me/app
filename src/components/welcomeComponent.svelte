@@ -1,6 +1,11 @@
 <script lang="ts">
+    import Button from './button.svelte';
     export let welcomeImages: Array<{ src: string; handle: string }>;
+
+    let scrollY: number;
 </script>
+
+<svelte:window bind:scrollY={scrollY} />
 
 <!-- Welcome Page -->
 
@@ -16,7 +21,37 @@
     </div>
     
     <div class="tablet-max:hidden">
-        <a href="#"><i class="fa-solid fa-circle-arrow-down animate-bounce text-50 text-blue"></i></a>
+        <a href="#registerSection"><i class="fa-solid fa-circle-arrow-down animate-bounce text-50 text-blue"></i></a>
     </div>
     
+</section>
+
+<!-- REGISTER SECTION -->
+
+<section id="registerSection" class="flex flex-row desktop-max:flex-col desktop-max:gap-10 desktop-max:py-32 h-screen w-full bg-green justify-center items-center">
+    <div class="{scrollY >= 500 ? 'w-1/3 relative slide-in-left' : 'w-1/3 relative invisible'}">
+        <img class="absolute bottom-24 w-233 h-326 rounded-15" src="image_2.jpg" alt="image" />
+        <img class="relative left-32 w-233 h-326 rounded-15" src="image_5.jpg" alt="image" />
+    </div>
+    
+
+    <div class="flex flex-col gap-8 items-center w-1/3">
+        <h3 class="text-40 font-semibold text-center text-text-contrast">Explorez le monde depuis chez vous</h3>
+        <p class="text-xl font-normal text-center text-text-contrast">Inscrivez-vous, ajouter vos amis et defiez les pour découvrir le monde !</p>
+        <Button link={'register'} fill={false} text={"S'inscrire"} />
+    </div>
+</section>
+
+<!-- ABOUT SECTION -->
+
+<section id="aboutSection" class="flex flex-row desktop-max:flex-col desktop-max:gap-10 desktop-max:py-32 h-screen w-full bg-yellow justify-center items-center">
+    <div class="flex flex-col gap-8 items-center w-1/3">
+        <h3 class="text-40 font-semibold text-center text-alert">A propos de FindMe</h3>
+        <p class="text-xl font-normal text-center text-alert">Que vous soyez un globe-trotter chevronné ou un amateur de jeux en ligne, FindMe offre une expérience immersive qui vous permet de tester vos compétences géographiques tout en vous amusant avec vos amis.</p>
+        <Button fill={false} text={"A propos"} />
+    </div>
+
+    <div class="flex items-center justify-end desktop-max:justify-center {scrollY >= 1500 ? 'w-1/3 slide-in-right' : 'w-1/3 invisible'}">
+        <img class="w-4/6 rounded-15" src="globe.png" alt="image globe" />
+    </div>
 </section>

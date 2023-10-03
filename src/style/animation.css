@@ -10,6 +10,14 @@
   animation: slide-in-bottom .8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
+.slide-in-left {
+	animation: slide-in-left 0.8s 0.2s both;
+}
+
+.slide-in-right {
+	animation: slide-in-right 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.2s both;
+}
+
 @keyframes slide-in-bottom {
     0% {
       transform: translateY(700px);
@@ -17,6 +25,28 @@
     }
     100% {
       transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-in-left {
+    0% {
+      transform: translateX(-700px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-in-right {
+    0% {
+      transform: translateX(200px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
       opacity: 1;
     }
   }

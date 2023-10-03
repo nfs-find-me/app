@@ -32,7 +32,9 @@ export default {
       xxl: '30px',
       40: '40px',
       50: '50px',
-      60: '60px'
+      60: '60px',
+      80: '80px',
+      90: '90px'
 		},
 		fontFamily: {
 			display: 'Montserrat, sans-serif'
