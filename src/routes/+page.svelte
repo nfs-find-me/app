@@ -6,6 +6,6 @@
 
 <NavBar isLogged={false}></NavBar>
 
-<HomeComponent isLogged={false}></HomeComponent>
+<HomeComponent isLogged={true}></HomeComponent>
 
 <Footer isLogged={false}></Footer>
