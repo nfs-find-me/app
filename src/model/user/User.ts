@@ -1,4 +1,4 @@
-import { Role } from "./Role.enum";
+import { Role } from '../../enum/Role.enum';
 
 export class User {
 	id?: string;
@@ -13,5 +13,4 @@ export class User {
 	roles?: Role[] = [Role.USER, Role.UNVERIFIED];
 	score?: number;
 	biography?: string;
-
 }

@@ -3,12 +3,14 @@ import { Post } from '../model/post/Post';
 import { User } from '../model/user/User';
 import { FeatureEnum } from './feature.enum';
 
-export class BaseRestApi {
+export abstract class BaseRestApi {
 	protected server = API_SERVER;
 	protected feature?: FeatureEnum;
 	protected header = new Headers({
-		'Content-Type': 'application/json',
-		Authorization: `Bearer ${localStorage.getItem('token')}`
+		'Content-Type': 'application/json'
+	});
+	protected headerPublic = new Headers({
+		'Content-Type': 'application/json'
 	});
 
 	constructor(feature: FeatureEnum) {
@@ -111,9 +113,11 @@ export class BaseRestApi {
 		}
 	}
 
-	private static getType(feature: FeatureEnum | undefined): any {
+	protected static getType(feature: FeatureEnum | undefined): any {
 		switch (feature) {
 			case FeatureEnum.USER:
+				return User;
+			case FeatureEnum.AUTH:
 				return User;
 			case FeatureEnum.POST:
 				return Post;

@@ -1,10 +1,20 @@
-<script>
+<script lang="ts">
 	import Button from '../../components/button.svelte';
 	import Input from '../../components/input.svelte';
 	import LogoTitle from '../../components/logoTitle.svelte';
 	import NavBar from '../../components/navBar.svelte';
 	import Modal from '../../components/modal.svelte';
 	import Cgu from '../../components/cgu.svelte';
+	import type { User } from '../../model/user/User';
+	import { InputTypeEnum } from '../../enum/InputType.enum';
+	import { enhance } from '$app/forms';
+	import { ButtonTypeEnum } from '../../enum/ButtonType.enum';
+
+	let user: User = {
+		email: '',
+		username: '',
+		password: ''
+	};
 
 	let showModal = false;
 </script>
@@ -16,45 +26,40 @@
 >
 	<LogoTitle title="inscription" />
 
-	<form class="flex flex-col items-center justify-center px-5 max-w-[450px]">
+	<form
+		class="flex flex-col items-center justify-center px-5 max-w-[450px]"
+		method="POST"
+		use:enhance
+	>
 		<Input
-			config={{
-				type: 'email',
-				id: 'email',
-				name: 'email',
-				label: 'Email',
-				text: ''
-			}}
+			label={'Email'}
+			type={InputTypeEnum.EMAIL}
+			id={'email'}
+			name={'email'}
+			bind:value={user.email}
 		/>
 
 		<Input
-			config={{
-				type: 'text',
-				id: 'username',
-				name: 'username',
-				label: "Nom d'utilisateur",
-				text: ''
-			}}
+			type={InputTypeEnum.TEXT}
+			label={"Nom d'utilisateur"}
+			id={'username'}
+			name={'username'}
+			bind:value={user.username}
 		/>
 
 		<Input
-			config={{
-				type: 'password',
-				id: 'password',
-				name: 'password',
-				label: 'Mot de passe',
-				text: ''
-			}}
+			label={'Mot de passe'}
+			type={InputTypeEnum.PASSWORD}
+			id={'password'}
+			name={'password'}
+			bind:value={user.password}
 		/>
 
 		<Input
-			config={{
-				type: 'password',
-				id: 'password_confirm',
-				name: 'password_confirm',
-				label: 'Confirmation du mot de passe',
-				text: ''
-			}}
+			label={'Confirmation du mot de passe'}
+			type={InputTypeEnum.PASSWORD}
+			id={'password_confirm'}
+			name={'password_confirm'}
 		/>
 
 		<div class="flex items-center mb-4">
@@ -80,8 +85,7 @@
 		<p class="text-sm m-8 text-start">
 			Déjà un compte ? <a class="action" href="/login">Cliquez-ici pour vous connecter</a>
 		</p>
-
-		<Button fill={true} text={"S' inscrire"} />
+		<Button type={ButtonTypeEnum.SUBMIT} fill={true} text={"S' inscrire"} />
 	</form>
 </section>
 
