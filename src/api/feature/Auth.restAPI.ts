@@ -1,8 +1,7 @@
-import type { User } from '../../model/user/User';
-import { BaseRestApi } from '../Base.restAPi';
+import { BasePublicRestApi } from '../BasePublic.restAPI';
 import { FeatureEnum } from '../feature.enum';
 
-export class AuthRestApi extends BaseRestApi {
+export class AuthRestApi extends BasePublicRestApi {
 	constructor() {
 		super(FeatureEnum.AUTH);
 	}
@@ -10,7 +9,7 @@ export class AuthRestApi extends BaseRestApi {
 	public async register<T>(data: T): Promise<T | Error> {
 		console.log('register', { data }, { link: this.server + this.feature + '/register' });
 
-		const type = BaseRestApi.getType(this.feature) as T;
+		const type = BasePublicRestApi.getType(this.feature) as T;
 		try {
 			const response = await fetch(this.server + this.feature + '/register', {
 				method: 'POST',
