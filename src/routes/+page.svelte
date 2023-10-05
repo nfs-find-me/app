@@ -2,10 +2,12 @@
 	import NavBar from "../components/navBar.svelte";
 	import Footer from "../components/footerComponent.svelte";
 	import HomeComponent from "../components/homeComponent.svelte";
+
+	let isLogged = true;
 </script>
 
-<NavBar isLogged={false}></NavBar>
+<NavBar isLogged={isLogged}></NavBar>
 
-<HomeComponent isLogged={true}></HomeComponent>
+<HomeComponent isLogged={isLogged}></HomeComponent>
 
-<Footer isLogged={false}></Footer>
+<Footer isLogged={isLogged}></Footer>
