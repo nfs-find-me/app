@@ -1,13 +1,13 @@
 <script lang="ts">
-	import NavBar from "../components/navBar.svelte";
-	import Footer from "../components/footerComponent.svelte";
-	import HomeComponent from "../components/homeComponent.svelte";
+	import NavBar from '../components/navBar.svelte';
+	import Footer from '../components/footerComponent.svelte';
+	import HomeComponent from '../components/homeComponent.svelte';
 
-	let isLogged = true;
+	let isLogged = false;
 </script>
 
-<NavBar isLogged={isLogged}></NavBar>
+<NavBar {isLogged} />
 
-<HomeComponent isLogged={isLogged}></HomeComponent>
+<HomeComponent {isLogged} />
 
-<Footer isLogged={isLogged}></Footer>
+<Footer {isLogged} />
