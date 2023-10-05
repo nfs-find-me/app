@@ -1,6 +1,7 @@
 <script lang="ts">
 	import VisitorHomeComponent from "./visitorHomeComponent.svelte";
 	import UserHomeComponent from "./userHomeComponent.svelte";
+
     export let isLogged:Boolean;
 
     const welcomeImages: Array<{ src: string; handle: string }> = [

@@ -1,7 +1,12 @@
 <script lang="ts">
-    export let postImage: Array<{ src: string; handle: string }>;
+    import { currentPage } from "../store/pathStore";
 
+    export let postImage: Array<{ src: string; handle: string }>;
 </script>
+
+{#if $currentPage == "explore"}
+    <p>Explore page Here !!</p>
+{/if}
 
 <section>
     <div class="w-full p-5 mx-auto m-10 gap-5 columns-1 space-y-5 tablet-sm:columns-3 tablet:columns-4 laptop:columns-5 ">
