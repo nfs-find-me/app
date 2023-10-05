@@ -3,17 +3,18 @@
 	export let text = 'TEXT BUTTON A MODIFIER';
 	export let fill = true;
 	export let link: string | null = null;
+	export let color: string = 'blue';
 	export let type: ButtonTypeEnum = ButtonTypeEnum.BUTTON;
 </script>
 
 {#if link}
 	<a href={'/' + link}>
-		<button class="btn" class:btn-primary={fill} class:btn-secondary={!fill}>
+		<button class={'btn btn-color-' + color} class:btn-fill={fill}>
 			{text}
 		</button>
 	</a>
 {:else}
-	<button {type} class="btn" class:btn-primary={fill} class:btn-secondary={!fill}>
+	<button {type} class={'btn btn-color-' + color} class:btn-fill={fill}>
 		{text}
 	</button>
 {/if}

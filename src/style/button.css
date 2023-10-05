@@ -4,13 +4,31 @@
 
 @layer components {
 	.btn {
-		@apply border p-3 w-36 border-blue font-bold  rounded-full  text-center border-solid transition duration-300 ease-in-out 
+		@apply border p-3 w-36 font-bold  rounded-full  text-center border-solid transition duration-300 ease-in-out 
 		hover:cursor-pointer hover:shadow-lg;
 	}
-	.btn-primary {
-		@apply text-white-secondary bg-blue	hover:bg-blue-dark !important;
+
+	.btn-color-blue {
+		@apply border-blue bg-white-secondary text-blue hover:bg-blue-white-light !important;
 	}
-	.btn-secondary {
-		@apply bg-white-secondary text-blue hover:bg-blue-white-light !important;
+
+	.btn-color-blue.btn-fill {
+		@apply border-blue text-white-secondary bg-blue	hover:bg-blue-dark !important;
+	}
+
+	.btn-color-night-blue {
+		@apply border-night-blue bg-white-secondary text-night-blue hover:bg-night-blue-light !important;
+	}
+
+	.btn-color-night-blue.btn-fill {
+		@apply border-night-blue text-white-secondary bg-night-blue	hover:bg-night-blue-dark !important;
+	}
+
+	.btn-color-red {
+		@apply border-night-blue bg-white-secondary text-night-blue hover:bg-night-blue-light !important;
+	}
+
+	.btn-color-red.btn-fill {
+		@apply border-night-blue text-white-secondary bg-night-blue	hover:bg-night-blue-dark !important;
 	}
 }

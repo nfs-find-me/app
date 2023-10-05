@@ -17,9 +17,19 @@ export default {
 			white: '#FFFFFF',
 			'white-secondary': '#FAF8FF',
 			green: '#7FD1AE',
+
 			blue: '#0390BF',
 			'blue-dark': '#0388B5',
 			'blue-white-light': '#EEF8FC',
+
+			'night-blue': '#112A46',
+			'night-blue-light': '#eef4fb',
+			'night-blue-dark': '#0b1b2d',
+
+			red: '#C31952',
+			'red-light': '#fbdee8',
+			'red-dark': '#580b25',
+
 			black: '#000000',
 			'text-contrast': '#112A46',
 			yellow: '#FFFD92',
