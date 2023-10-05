@@ -21,14 +21,14 @@
 	}
 
 	.btn-color-night-blue.btn-fill {
-		@apply border-night-blue text-white-secondary bg-night-blue	hover:bg-night-blue-dark !important;
+		@apply border-night-blue text-green bg-night-blue	hover:bg-night-blue-dark !important;
 	}
 
 	.btn-color-red {
-		@apply border-night-blue bg-white-secondary text-night-blue hover:bg-night-blue-light !important;
+		@apply border-red bg-white-secondary text-red hover:bg-red-light !important;
 	}
 
 	.btn-color-red.btn-fill {
-		@apply border-night-blue text-white-secondary bg-night-blue	hover:bg-night-blue-dark !important;
+		@apply border-red-dark text-white-secondary bg-red	hover:bg-red-dark !important;
 	}
 }

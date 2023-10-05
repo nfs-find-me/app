@@ -24,11 +24,11 @@ export default {
 
 			'night-blue': '#112A46',
 			'night-blue-light': '#eef4fb',
-			'night-blue-dark': '#0b1b2d',
+			'night-blue-dark': '#122D47',
 
 			red: '#C31952',
 			'red-light': '#fbdee8',
-			'red-dark': '#580b25',
+			'red-dark': '#a21544',
 
 			black: '#000000',
 			'text-contrast': '#112A46',

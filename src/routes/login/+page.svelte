@@ -33,6 +33,6 @@
 			Pas de compte ? <a class="action" href="/register">Cliquez ici pour vous inscrire</a>
 		</p>
 
-		<Button type={ButtonTypeEnum.SUBMIT} color={'night-blue'} fill={true} text={'Se connecter'} />
+		<Button type={ButtonTypeEnum.SUBMIT} text={'Se connecter'} />
 	</form>
 </section>
