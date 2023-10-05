@@ -4,26 +4,26 @@ export default {
 	theme: {
 		screens: {
 			'tablet-sm': '768px',
-			tablet: '915px',
+			'tablet': '915px',
 			'tablet-max': { max: '915px' },
-			laptop: '1024px',
-			desktop: '1280px',
+			'laptop': '1024px',
+			'desktop': '1280px',
 			'desktop-max': { max: '1280px' },
 			'desktop-xl': '1440px',
 			'desktop-xl-max': { max: '1440px' }
 		},
 		colors: {
-			transparent: 'transparent',
-			white: '#FFFFFF',
+			'transparent': 'transparent',
+			'white': '#FFFFFF',
 			'white-secondary': '#FAF8FF',
-			green: '#7FD1AE',
-			blue: '#0390BF',
+			'green': '#7FD1AE',
+			'blue': '#0390BF',
 			'blue-dark': '#0388B5',
 			'blue-white-light': '#EEF8FC',
-			black: '#000000',
+			'black': '#000000',
 			'text-contrast': '#112A46',
-			yellow: '#FFFD92',
-			alert: '#C31952'
+			'yellow': '#FFFD92',
+			'alert': '#C31952'
 		},
 		fontSize: {
 			sm: '12px',
