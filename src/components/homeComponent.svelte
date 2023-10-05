@@ -24,6 +24,11 @@
         { src: 'image_13.jpg', handle: 'image_13' },
         { src: 'image_12.jpg', handle: 'image_12' },
         { src: 'image_14.jpg', handle: 'image_14' },
+        { src: 'image_15.jpg', handle: 'image_15' },
+        { src: 'image_16.jpg', handle: 'image_16' },
+        { src: 'image_17.jpg', handle: 'image_17' },
+        { src: 'image_18.jpg', handle: 'image_18' },
+        { src: 'image_19.jpg', handle: 'image_19' },
     ];
 
 </script>

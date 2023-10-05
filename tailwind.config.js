@@ -3,6 +3,7 @@ export default {
 	content: ['./src/**/*.{html,js,svelte,ts}', './src/style/**/*.css'],
 	theme: {
 		screens: {
+      'tablet-sm': '768px',
       'tablet': '915px',
       'tablet-max': {'max': '915px'},
       'laptop': '1024px',

@@ -1,22 +1,22 @@
 <script lang="ts">
     export let postImage: Array<{ src: string; handle: string }>;
 
-    // Groupez les images par 4
-    const groupedImages: Array<Array<{ src: string; handle: string }>> = [];
-    for (let i = 0; i < postImage.length; i += 4) {
-        groupedImages.push(postImage.slice(i, i + 4));
-    }
-
 </script>
 
-<div class="grid grid-cols-3 gap-4 py-24 px-16">
-    {#each groupedImages as group}
-    <div class="grid gap-4">
-        {#each group as image}
-        <div class="max-h-800 overflow-hidden">
-            <img class="w-full h-auto rounded-lg" src={image.src} alt={image.handle}>
-        </div>
+<section>
+    <div class="w-full p-5 mx-auto m-10 gap-5 columns-1 space-y-5 tablet-sm:columns-3 tablet:columns-4 laptop:columns-5 ">
+        {#each postImage as image}
+            <div class="relative overflow-hidden hover:cursor-pointer">
+                <img class="w-full transition duration-300 ease-in-out hover:scale-110" src="{image.src}" alt="{image.handle}">
+                <div class="absolute bottom-2 right-2 flex gap-2 items-center bg-white-secondary opacity-70 p-2 rounded-full">
+                    <i class="fa-solid fa-eye"></i>
+                    <span class="text-gray-500">5</span>
+                </div>
+            </div>
         {/each}
     </div>
-    {/each}
-</div>
+</section>
+
+
+
+
