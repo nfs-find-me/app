@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Button from './button.svelte';
-  export let isLogged:Boolean;
+  	export let isLogged:Boolean;
 </script>
 
 <!-- Desktop Nav -->
@@ -37,6 +37,13 @@
 </nav>
 
 <!-- Phone Nav -->
+
+<div class="tablet:hidden flex items-center justify-center p-4">
+	<a href="/" class="flex flex-row gap-2 items-center hover:cursor-pointer">
+		<img class="w-32" src="favicon.svg" alt="logo" />
+		<h2 class="text-xxl font-bold text-blue">FindMe</h2>
+	</a>
+</div>
 
 <nav
 	class="tablet:hidden fixed z-50 w-full h-20 max-w-lg -translate-x-1/2 shadow-xl bg-white-secondary rounded-full bottom-4 left-1/2"

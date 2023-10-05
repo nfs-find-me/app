@@ -16,4 +16,4 @@
 
 <WelcomeComponent {welcomeImages} />
 
-<Footer isLogged={false} />
+<WelcomeComponent {welcomeImages} />
