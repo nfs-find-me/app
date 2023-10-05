@@ -1,11 +1,12 @@
 <script lang="ts">
     import { currentPage } from "../store/pathStore";
+    import SearchComponent from "./searchComponent.svelte";
 
     export let postImage: Array<{ src: string; handle: string }>;
 </script>
 
 {#if $currentPage == "explore"}
-    <p>Explore page Here !!</p>
+    <SearchComponent></SearchComponent>
 {/if}
 
 <section>
