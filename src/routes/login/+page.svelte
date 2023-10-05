@@ -1,8 +1,11 @@
 <script>
+	import { enhance } from '$app/forms';
 	import Button from '../../components/button.svelte';
 	import Input from '../../components/input.svelte';
 	import LogoTitle from '../../components/logoTitle.svelte';
 	import NavBar from '../../components/navBar.svelte';
+	import { ButtonTypeEnum } from '../../enum/ButtonType.enum';
+	import { InputTypeEnum } from '../../enum/InputType.enum';
 </script>
 
 <NavBar isLogged={false} />
@@ -12,31 +15,24 @@
 >
 	<LogoTitle title="connexion" />
 
-	<form class="flex flex-col items-center justify-center max-w-400">
+	<form
+		class="flex flex-col items-center justify-center px-5 max-w-[450px]"
+		method="POST"
+		use:enhance
+	>
 		<Input
-			config={{
-				type: 'text',
-				id: 'email',
-				name: 'email',
-				label: "Email ou nom d'utilisateur",
-				text: ''
-			}}
+			label={"Nom d'utilisateur ou email"}
+			type={InputTypeEnum.TEXT}
+			id={'usernameEmail'}
+			name={'usernameEmail'}
 		/>
 
-		<Input
-			config={{
-				type: 'password',
-				id: 'password',
-				name: 'password',
-				label: 'Mot de passe',
-				text: ''
-			}}
-		/>
+		<Input label={'Mot de passe'} type={InputTypeEnum.PASSWORD} id={'password'} name={'password'} />
 
 		<p class="text-sm m-8 text-start">
 			Pas de compte ? <a class="action" href="/register">Cliquez ici pour vous inscrire</a>
 		</p>
 
-		<Button fill={true} text={'Se connecter'} />
+		<Button type={ButtonTypeEnum.SUBMIT} fill={true} text={'Se connecter'} />
 	</form>
 </section>

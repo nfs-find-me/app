@@ -44,16 +44,9 @@
 			label={"Nom d'utilisateur"}
 			id={'username'}
 			name={'username'}
-			bind:value={user.username}
 		/>
 
-		<Input
-			label={'Mot de passe'}
-			type={InputTypeEnum.PASSWORD}
-			id={'password'}
-			name={'password'}
-			bind:value={user.password}
-		/>
+		<Input label={'Mot de passe'} type={InputTypeEnum.PASSWORD} id={'password'} name={'password'} />
 
 		<Input
 			label={'Confirmation du mot de passe'}
