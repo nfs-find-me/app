@@ -1,6 +1,7 @@
 <script lang="ts">
 	import VisitorHomeComponent from './visitorHomeComponent.svelte';
 	import UserHomeComponent from './userHomeComponent.svelte';
+	import { currentPage } from '../store/pathStore';
 
 	export let isLogged: Boolean;
 

@@ -30,7 +30,10 @@ export default {
 			'black': '#000000',
 			'text-contrast': '#112A46',
 			'yellow': '#FFFD92',
-			'alert': '#C31952'
+			'alert': '#C31952',
+			'golden-yellow': '#FFDF00',
+			'stategray': '#708090',
+			'bronze': '#cd7f32'
 		},
 		fontSize: {
 			sm: '12px',
