@@ -25,7 +25,7 @@
 
 	<div class="flex gap-6 items-center">
 		{#if isLogged}
-			<i class="fa-solid fa-gear text-40 hover:cursor-pointer hover:text-blue" />
+			<i on:click={() => handlePageClick("setting")} class="fa-solid fa-gear text-40 hover:cursor-pointer hover:text-blue" />
 			<img
 				class="w-16 h-16 rounded-50 hover:cursor-pointer"
 				src="profil_picture.jpg"
