@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { InputTypeEnum } from '../enum/InputType.enum';
+	import { InputTypeEnum } from '$lib/enum/InputType.enum';
 
 	export let label = '';
 	export let name = '';

@@ -1,6 +1,6 @@
 import type { Actions, PageServerLoad } from './$types';
-import { AuthRestApi } from '../../api/feature/Auth.restAPI';
-import { User } from '../../model/user/User';
+import { AuthRestApi } from '../../lib/api/feature/Auth.restAPI';
+import { User } from '../../lib/model/user/User';
 
 export const load = (async () => {
 	return {};

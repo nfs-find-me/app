@@ -1,18 +1,19 @@
 import type { Actions, PageServerLoad } from './$types';
-import { AuthRestApi } from '../../api/feature/Auth.restAPI';
-import { User } from '../../model/user/User';
+
+import { User } from '../../lib/model/user/User';
 import { validateEmail } from '$lib/helpers/formatString.helper';
+import { error } from '@sveltejs/kit';
+import { AuthRestApi } from '$lib/api/feature/Auth.restAPI';
 
 export const load = (async () => {
 	return {};
 }) satisfies PageServerLoad;
 
 export const actions: Actions = {
-	default: async ({ request }) => {
+	default: async ({ cookies, request }) => {
 		const api = new AuthRestApi();
 		const user = new User();
 		const data = await request.formData();
-
 		const usernameOrEmail = data.get('usernameEmail') as string;
 		const isUsernameOrEmail = validateEmail(usernameOrEmail);
 		if (isUsernameOrEmail) {
@@ -21,12 +22,24 @@ export const actions: Actions = {
 		if (!isUsernameOrEmail) {
 			user.username = usernameOrEmail;
 		}
-
 		user.username = data.get('usernameEmail') as string;
 		user.password = data.get('password') as string;
-		const response = await api.login2(user);
-		console.log({ data: response });
-		//console.log('login', { response: response.json() });
-		return { success: true };
+		try {
+			const response = await api.login(user);
+			//  @ts-ignore
+			const JWT = response.data;
+			//  @ts-ignore
+			const expireTime = response.exp;
+			cookies.set('jwt', JWT, {
+				httpOnly: true,
+				sameSite: 'strict',
+				secure: false,
+				path: '/',
+				maxAge: expireTime
+			});
+			return { success: true };
+		} catch {
+			return { success: false, message: 'Identifiants invalides' };
+		}
 	}
 };

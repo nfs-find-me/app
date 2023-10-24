@@ -1,8 +1,8 @@
 <script lang="ts">
 	import Button from './button.svelte';
-	import { handlePageClick } from '../store/pathStore';
+	import { handlePageClick } from '$lib/store/pathStore';
 
-  	export let isLogged:Boolean;
+	export let isLogged: Boolean;
 </script>
 
 <!-- Desktop Nav -->
@@ -14,9 +14,13 @@
 	</a>
 
 	<ul class="flex gap-6 font-bold text-lg">
-		<li class="hover:cursor-pointer hover:text-blue" on:click={() => handlePageClick("home")}>Accueil</li>
+		<li class="hover:cursor-pointer hover:text-blue" on:click={() => handlePageClick('home')}>
+			Accueil
+		</li>
 		{#if isLogged}
-			<li class="hover:cursor-pointer hover:text-blue" on:click={() => handlePageClick("explore")}>Explorer</li>
+			<li class="hover:cursor-pointer hover:text-blue" on:click={() => handlePageClick('explore')}>
+				Explorer
+			</li>
 			<li class="hover:cursor-pointer hover:text-blue">Classement</li>
 		{:else}
 			<li class="hover:cursor-pointer hover:text-blue">A propos</li>
