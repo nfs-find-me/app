@@ -20,7 +20,6 @@ export default {
 			'blue': '#0390BF',
 			'blue-dark': '#0388B5',
 			'blue-white-light': '#EEF8FC',
-			'blue-dark': '#0388B5',
 			'night-blue': '#112A46',
 			'night-blue-light': '#eef4fb',
 			'night-blue-dark': '#122D47',
