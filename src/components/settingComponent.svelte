@@ -1,7 +1,8 @@
 <script lang="ts">
     import ErrorCard from "./errorCard.svelte";
     import AccountSettingComponent from "./accountSettingComponent.svelte";
-    
+    import SecuritySettingComponent from "./securitySettingComponent.svelte";
+
     let errorMessage = "Vous n'êtes pas autorisé à accéder à ce contenu.";
     let ongletInfo = {id: 1, name: "Mon compte"};
 
@@ -23,8 +24,8 @@
         <nav class="w-1/5 bg-white-secondary border-r-4 border-blue-dark flex flex-col justify-between">
             <ul class="py-10 px-4 flex flex-col gap-4">
                 <li on:click={() => updateOngletInfo(1, "Mon compte")} class="p-4 flex flex-row gap-4 items-center cursor-pointer">
-                    <i class="fa-regular fa-user text-xl text-blue font-bold"></i>
-                    <span class="text-lg text-blue font-bold">Mon compte</span>
+                    <i class="fa-regular fa-user text-xl text-text-contrast font-bold"></i>
+                    <span class="text-lg text-text-contrast">Mon compte</span>
                 </li>
                 <li on:click={() => updateOngletInfo(2, "Sécurité")} class="p-4 flex flex-row gap-4 items-center cursor-pointer">
                     <i class="fa-solid fa-key text-xl text-text-contrast"></i>
@@ -40,8 +41,9 @@
 
         {#if ongletInfo.id === 1}
             <AccountSettingComponent></AccountSettingComponent>
+        {:else if ongletInfo.id === 2}
+            <SecuritySettingComponent></SecuritySettingComponent>
         {/if}
-
     </section>
 
 {:else}
