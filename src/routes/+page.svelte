@@ -19,7 +19,7 @@
 {:else if $currentPage == 'setting'}
 	<SettingComponent {isLogged}></SettingComponent>
 {:else if $currentPage == 'picture' && $currentImage}
-	<PictureComponent {isLogged}></PictureComponent>
+	<PostComponent {isLogged}></PostComponent>
 {:else}
 	<p>No true Condition is true</p>
 {/if}

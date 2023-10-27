@@ -12,8 +12,8 @@ export const welcomeImages: Array<PostType> = [
 			country: 'France'
 		},
 		picture: {
-			url: 'image_1',
-			thumbnail_url: 'image_1'
+			url: 'image_1.webp',
+			thumbnail_url: 'image_1.webp'
 		},
 		view: [
 			{
@@ -49,8 +49,8 @@ export const welcomeImages: Array<PostType> = [
 			country: 'France'
 		},
 		picture: {
-			url: 'image_2',
-			thumbnail_url: 'image_2'
+			url: 'image_2.jpg',
+			thumbnail_url: 'image_2.jpg'
 		},
 		view: [
 			{
@@ -74,8 +74,8 @@ export const welcomeImages: Array<PostType> = [
 			country: 'France'
 		},
 		picture: {
-			url: 'image_3',
-			thumbnail_url: 'image_3'
+			url: 'image_3.jpg',
+			thumbnail_url: 'image_3.jpg'
 		},
 		view: [
 			{
@@ -107,8 +107,8 @@ export const welcomeImages: Array<PostType> = [
 			country: 'France'
 		},
 		picture: {
-			url: 'image_4',
-			thumbnail_url: 'image_4'
+			url: 'image_4.webp',
+			thumbnail_url: 'image_4.webp'
 		},
 		view: [
 			{
