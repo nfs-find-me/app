@@ -4,6 +4,7 @@
 	import HomeComponent from '../components/homeComponent.svelte';
 	import ClassementComponent from '../components/classementComponent.svelte';
 	import SettingComponent from '../components/settingComponent.svelte';
+	import ProfileComponent from '../components/profileComponent.svelte';
 
 	import { currentPage } from "../store/pathStore";
 
@@ -18,6 +19,8 @@
 	<ClassementComponent {isLogged}></ClassementComponent>
 {:else if $currentPage == 'setting'}
 	<SettingComponent {isLogged}></SettingComponent>
+{:else if $currentPage == 'profile'}
+	<ProfileComponent></ProfileComponent>
 {:else}
 	<p>No true Condition is true</p>
 {/if}

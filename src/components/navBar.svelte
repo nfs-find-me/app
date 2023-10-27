@@ -26,11 +26,7 @@
 	<div class="flex gap-6 items-center">
 		{#if isLogged}
 			<i on:click={() => handlePageClick("setting")} class="fa-solid fa-gear text-40 hover:cursor-pointer hover:text-blue" />
-			<img
-				class="w-16 h-16 rounded-50 hover:cursor-pointer"
-				src="profil_picture.jpg"
-				alt="image de profil"
-			/>
+			<img on:click={() => handlePageClick("profile")} class="w-16 h-16 rounded-50 hover:cursor-pointer" src="profil_picture.jpg" alt="image de profil" />
 		{:else}
 			<Button link={'login'} fill={true} text={'Se connecter'} />
 			<Button link={'register'} fill={false} text={"S'inscrire"} />
