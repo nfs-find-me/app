@@ -1,5 +1,11 @@
 <script lang="ts">
 
+let onglet: string = 'content';
+
+function sectionChange(newOnglet: string){
+        onglet = newOnglet;
+}
+
 </script>
 
 <section>
@@ -13,6 +19,22 @@
             <p class="text-lg font-bold"><span class="text-blue">256</span> points</p>
         </div>
     </div>
-    
+
+    <div class="w-full flex justify-center items-center">
+        <ul class="w-3/12 flex flex-row justify-center text-center">
+            <li class="w-full">
+                <span on:click={() => sectionChange('content')} class="inline-block w-full p-4 text-lg cursor-pointer {onglet === 'content' ? 'text-blue font-bold border-b-4 border-blue' : 'text-black'}">Contenu</span>
+            </li>
+            <li class="w-full">
+                <span on:click={() => sectionChange('createContent')} class="inline-block w-full p-4 text-lg cursor-pointer {onglet === 'createContent' ? 'text-blue font-bold border-b-4 border-blue' : 'text-black'}">Créer</span>
+            </li>
+        </ul>
+    </div>
+
+{#if onglet == "content"}
+    <p>Contenu !</p>
+{:else if onglet == "createContent"}
+    <p>Créer !</p>
+{/if}
 
 </section>
