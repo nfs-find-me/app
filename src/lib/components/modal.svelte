@@ -1,14 +1,8 @@
 <script>
-	// @ts-ignore
 	export let showModal; // boolean
 
-	// @ts-ignore
-	/**
-	 * @type {HTMLDialogElement}
-	 */
 	let dialog; // HTMLDialogElement
 
-	// @ts-ignore
 	$: if (dialog && showModal) dialog.showModal();
 </script>
 

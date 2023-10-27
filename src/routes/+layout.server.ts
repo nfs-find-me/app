@@ -1,13 +1,13 @@
-// @ts-ignore
 import type { PageServerLoad } from './$types';
-// @ts-ignore
-export const load = (async ({ cookies }) => {
-	const curentJwt = cookies.get('jwt');
-	if (!curentJwt) {
-		return;
-	}
+import { CookiesHelper } from '$lib/helpers/cookies/cookies.helper';
 
-	const refreshJwtToken = '';
+export const load = (async ({ cookies }) => {
+	try {
+		const cookiesHelper = new CookiesHelper(cookies);
+		await cookiesHelper.refreshCookies(cookies);
+	} catch {
+		return null;
+	}
 
 	return {};
 }) satisfies PageServerLoad;

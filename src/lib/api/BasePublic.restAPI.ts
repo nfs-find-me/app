@@ -22,13 +22,13 @@ export abstract class BasePublicRestApi extends BaseRestApi {
 			init.body = JSON.stringify(options.data);
 		}
 		const response = await fetch(this.server + this.feature + '/' + options.url, init);
+
 		if (response.status === 200 || response.status === 201) {
 			return response;
 		} else {
 			throw new Error(await response.text());
 		}
 	}
-
 	protected async post<T>(data: T, link = ''): Promise<T | Error> {
 		const type = BaseRestApi.getType(this.feature) as T;
 		const url = this.server + this.feature + '/' + link;
@@ -39,7 +39,7 @@ export abstract class BasePublicRestApi extends BaseRestApi {
 				body: JSON.stringify(data)
 			});
 
-			if (response.status === 201) {
+			if (response.status === 201 || response.status === 200) {
 				return await response.json();
 			} else {
 				throw new Error(response.statusText);

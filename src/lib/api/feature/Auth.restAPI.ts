@@ -36,18 +36,19 @@ export class AuthRestApi extends BasePublicRestApi {
 		if (response instanceof Response) {
 			return response.json();
 		}
-		throw response;
+		throw response as Error;
 	}
 
-	public async refreshToken(jwtToken: string) {
+	public async refreshToken(data: { login: string; refreshToken: string }) {
 		const response: Response | Error = await this.request({
 			method: HTTP.POST,
 			url: 'refresh',
-			data: jwtToken
+			data
 		});
+
 		if (response instanceof Response) {
 			return response.json();
 		}
-		throw response;
+		throw response as Error;
 	}
 }

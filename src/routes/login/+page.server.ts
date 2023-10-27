@@ -1,16 +1,15 @@
 import type { Actions, PageServerLoad } from './$types';
-
 import { User } from '../../lib/model/user/User';
 import { validateEmail } from '$lib/helpers/formatString.helper';
-import { error } from '@sveltejs/kit';
 import { AuthRestApi } from '$lib/api/feature/Auth.restAPI';
+import { CookiesHelper } from '$lib/helpers/cookies/cookies.helper';
 
 export const load = (async () => {
 	return {};
 }) satisfies PageServerLoad;
 
 export const actions: Actions = {
-	default: async ({ cookies, request }) => {
+	default: async ({ cookies: cookies, request }) => {
 		const api = new AuthRestApi();
 		const user = new User();
 		const data = await request.formData();
@@ -26,17 +25,11 @@ export const actions: Actions = {
 		user.password = data.get('password') as string;
 		try {
 			const response = await api.login(user);
-			//  @ts-ignore
-			const JWT = response.data;
-			//  @ts-ignore
+			const tokens = response.data;
 			const expireTime = response.exp;
-			cookies.set('jwt', JWT, {
-				httpOnly: true,
-				sameSite: 'strict',
-				secure: false,
-				path: '/',
-				maxAge: expireTime
-			});
+
+			const cookiesHelper = new CookiesHelper(cookies);
+			cookiesHelper.setAuthCookies(user.username, tokens.jwtToken, tokens.refreshToken, expireTime);
 			return { success: true };
 		} catch {
 			return { success: false, message: 'Identifiants invalides' };
