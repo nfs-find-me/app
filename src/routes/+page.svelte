@@ -5,7 +5,7 @@
 	import ClassementComponent from '../components/classementComponent.svelte';
 	import SettingComponent from '../components/settingComponent.svelte';
 
-	import { currentPage } from "../store/pathStore";
+	import {currentImage, currentPage} from "../store/pathStore";
 
 	let isLogged = true;
 </script>
@@ -18,6 +18,8 @@
 	<ClassementComponent {isLogged}></ClassementComponent>
 {:else if $currentPage == 'setting'}
 	<SettingComponent {isLogged}></SettingComponent>
+{:else if $currentPage == 'picture' && $currentImage}
+	<PictureComponent {isLogged}></PictureComponent>
 {:else}
 	<p>No true Condition is true</p>
 {/if}
