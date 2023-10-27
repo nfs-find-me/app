@@ -1,11 +1,11 @@
 <script>
 	import { enhance } from '$app/forms';
-	import Button from '$lib/components/button.svelte';
-	import Input from '$lib/components/input.svelte';
-	import LogoTitle from '$lib/components/logoTitle.svelte';
-	import NavBar from '$lib/components/navBar.svelte';
-	import { ButtonTypeEnum } from '$lib/enum/ButtonType.enum';
-	import { InputTypeEnum } from '$lib/enum/InputType.enum';
+	import Button from '../../components/button.svelte';
+	import Input from '../../components/input.svelte';
+	import LogoTitle from '../../components/logoTitle.svelte';
+	import NavBar from '../../components/navBar.svelte';
+	import { ButtonTypeEnum } from '../../enum/ButtonType.enum';
+	import { InputTypeEnum } from '../../enum/InputType.enum';
 
 	import { useForm, Hint, validators, minLength } from 'svelte-use-form';
 	const form = useForm();

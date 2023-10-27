@@ -1,8 +1,9 @@
 import type { Actions, PageServerLoad } from './$types';
-import { User } from '../../lib/model/user/User';
-import { validateEmail } from '$lib/helpers/formatString.helper';
-import { AuthRestApi } from '$lib/api/feature/Auth.restAPI';
-import { CookiesHelper } from '$lib/helpers/cookies/cookies.helper';
+import { User } from '../../model/user/User';
+import { validateEmail } from '../../helpers/formatString.helper';
+import { AuthRestApi } from '../../api/feature/Auth.restAPI';
+import { CookiesHelper } from '../../helpers/cookies/cookies.helper';
+import { connected } from '../../store/isLogged';
 
 export const load = (async () => {
 	return {};
@@ -30,6 +31,7 @@ export const actions: Actions = {
 
 			const cookiesHelper = new CookiesHelper(cookies);
 			cookiesHelper.setAuthCookies(user.username, tokens.jwtToken, tokens.refreshToken, expireTime);
+			connected(true);
 			return { success: true };
 		} catch {
 			return { success: false, message: 'Identifiants invalides' };

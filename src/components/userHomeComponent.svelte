@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { currentPage } from '$lib/store/pathStore';
+	import { currentPage } from '../store/pathStore';
 	import SearchComponent from './searchComponent.svelte';
 
 	export let postImage: Array<{ src: string; handle: string }>;

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Button from './button.svelte';
-	import { handlePageClick } from '$lib/store/pathStore';
+	import { handlePageClick } from '../store/pathStore';
 
 	export let isLogged: Boolean;
 </script>

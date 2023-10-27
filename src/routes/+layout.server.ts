@@ -1,6 +1,6 @@
 import type { PageServerLoad } from './$types';
-import { CookiesHelper } from '$lib/helpers/cookies/cookies.helper';
-import { connected } from '$lib/store/isLogged';
+import { CookiesHelper } from '../helpers/cookies/cookies.helper';
+import { connected } from '../store/isLogged';
 
 export const load = (async ({ cookies }) => {
 	try {

@@ -1,4 +1,4 @@
-import { AuthRestApi } from '$lib/api/feature/Auth.restAPI';
+import { AuthRestApi } from '../../api/feature/Auth.restAPI';
 import type { Cookies } from '@sveltejs/kit';
 
 export class CookiesHelper {

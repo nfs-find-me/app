@@ -1,4 +1,4 @@
-import { HTTP } from '$lib/enum/HTTP.enum';
+import { HTTP } from '../../enum/HTTP.enum';
 import { BasePublicRestApi } from '../BasePublic.restAPI';
 import { FeatureEnum } from '../feature.enum';
 

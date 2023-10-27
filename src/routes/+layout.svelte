@@ -2,8 +2,8 @@
 	import '../style/button.css';
 	import '../style/input.css';
 	import '../style/animation.css';
-	import { isLogged } from '$lib/store/isLogged';
-	import { currentPage } from '$lib/store/pathStore';
+	import { isLogged } from '../store/isLogged';
+	import { currentPage } from '../store/pathStore';
 </script>
 
 <slot />

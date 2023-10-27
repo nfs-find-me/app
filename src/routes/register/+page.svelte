@@ -1,14 +1,14 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
-	import Button from '$lib/components/button.svelte';
-	import Input from '$lib/components/input.svelte';
-	import LogoTitle from '$lib/components/logoTitle.svelte';
-	import NavBar from '$lib/components/navBar.svelte';
-	import Modal from '$lib/components/modal.svelte';
-	import Cgu from '$lib/components/cgu.svelte';
-	import type { User } from '$lib/model/user/User';
-	import { InputTypeEnum } from '$lib/enum/InputType.enum';
-	import { ButtonTypeEnum } from '$lib/enum/ButtonType.enum';
+	import Button from '../../components/button.svelte';
+	import Input from '../../components/input.svelte';
+	import LogoTitle from '../../components/logoTitle.svelte';
+	import NavBar from '../../components/navBar.svelte';
+	import Modal from '../../components/modal.svelte';
+	import Cgu from '../../components/cgu.svelte';
+	import type { User } from '../../model/user/User';
+	import { InputTypeEnum } from '../../enum/InputType.enum';
+	import { ButtonTypeEnum } from '../../enum/ButtonType.enum';
 
 	let user: User = {
 		email: '',

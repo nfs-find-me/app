@@ -1,4 +1,4 @@
-import { AuthRestApi } from '$lib/api/feature/Auth.restAPI';
+import { AuthRestApi } from '../../api/feature/Auth.restAPI';
 
 export class jwtHelper {
 	public async getJwtAndGenerateNewRefreshToken(data: {
