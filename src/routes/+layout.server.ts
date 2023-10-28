@@ -1,16 +1,16 @@
-import type { PageServerLoad } from './$types';
+import type { LayoutServerLoad } from './$types';
 import { CookiesHelper } from '../helpers/cookies/cookies.helper';
-import { connected } from '../store/isLogged';
 
-export const load = (async ({ cookies }) => {
+export const load: LayoutServerLoad = (async ({ cookies }) => {
+	let sendIsLoggedToFront: Boolean = false;
 	try {
 		const cookiesHelper = new CookiesHelper(cookies);
 		await cookiesHelper.refreshCookies(cookies);
-		connected(true);
+		sendIsLoggedToFront = true;
 	} catch {
-		connected(false);
-		return null;
+		sendIsLoggedToFront = false;
 	}
-
-	return {};
+	return {
+		sendIsLoggedToFront
+	};
 }) satisfies PageServerLoad;

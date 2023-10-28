@@ -31,9 +31,10 @@ export const actions: Actions = {
 
 			const cookiesHelper = new CookiesHelper(cookies);
 			cookiesHelper.setAuthCookies(user.username, tokens.jwtToken, tokens.refreshToken, expireTime);
-			connected(true);
+
 			return { success: true };
-		} catch {
+		} catch (e) {
+			console.log(e);
 			return { success: false, message: 'Identifiants invalides' };
 		}
 	}

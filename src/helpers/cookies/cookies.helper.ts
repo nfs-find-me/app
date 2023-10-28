@@ -52,7 +52,7 @@ export class CookiesHelper {
 		const login = cookies.get('login');
 		const refreshToken = cookies.get('refresh');
 		if (login === undefined || refreshToken === undefined) {
-			return;
+			throw Error;
 		}
 		const data = { login, refreshToken };
 		const api = new AuthRestApi();
