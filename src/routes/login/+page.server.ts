@@ -3,9 +3,9 @@ import { User } from '../../model/user/User';
 import { validateEmail } from '../../helpers/formatString.helper';
 import { AuthRestApi } from '../../api/feature/Auth.restAPI';
 import { CookiesHelper } from '../../helpers/cookies/cookies.helper';
-import { connected } from '../../store/isLogged';
+import { redirect } from '@sveltejs/kit';
 
-export const load = (async () => {
+export const load: PageServerLoad = (async () => {
 	return {};
 }) satisfies PageServerLoad;
 
@@ -24,18 +24,20 @@ export const actions: Actions = {
 		}
 		user.username = data.get('usernameEmail') as string;
 		user.password = data.get('password') as string;
+		let isValidForm: Boolean = true;
 		try {
 			const response = await api.login(user);
 			const tokens = response.data;
 			const expireTime = response.exp;
-
 			const cookiesHelper = new CookiesHelper(cookies);
 			cookiesHelper.setAuthCookies(user.username, tokens.jwtToken, tokens.refreshToken, expireTime);
-
-			return { success: true };
+			isValidForm = true;
 		} catch (e) {
-			console.log(e);
-			return { success: false, message: 'Identifiants invalides' };
+			console.error({ e });
+			isValidForm = false;
+		}
+		if (isValidForm) {
+			throw redirect(302, '/');
 		}
 	}
 };

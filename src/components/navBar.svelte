@@ -3,6 +3,7 @@
 	import { handlePageClick } from '../store/pathStore';
 
 	export let isLogged: Boolean;
+	console.log({ isLogged });
 </script>
 
 <!-- Desktop Nav -->

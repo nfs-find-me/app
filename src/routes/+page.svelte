@@ -2,11 +2,14 @@
 	import NavBar from '../components/navBar.svelte';
 	import Footer from '../components/footerComponent.svelte';
 	import HomeComponent from '../components/homeComponent.svelte';
-	let isLogged = false;
+	import { isLogged } from '../store/isLogged';
+	let isConnected: boolean;
+	const subscribe = isLogged.subscribe((v) => (isConnected = v));
+	console.log('fix', { isConnected });
 </script>
 
-<NavBar {isLogged} />
+<NavBar isLogged={isConnected} />
 
-<HomeComponent {isLogged} />
+<HomeComponent isLogged={isConnected} />
 
-<Footer {isLogged} />
+<Footer isLogged={isConnected} />
