@@ -11,6 +11,8 @@ export abstract class BasePublicRestApi extends BaseRestApi {
 		url?: string;
 		data?: T;
 	}): Promise<Response | Error> {
+		console.log('resquest');
+
 		if (!options.method) {
 			throw new Error('La méthode HTTP est obligatoire');
 		}
@@ -22,6 +24,7 @@ export abstract class BasePublicRestApi extends BaseRestApi {
 			init.body = JSON.stringify(options.data);
 		}
 		const response = await fetch(this.server + this.feature + '/' + options.url, init);
+		console.log({ requestResponse: response });
 
 		if (response.status === 200 || response.status === 201) {
 			return response;
