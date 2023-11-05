@@ -19,10 +19,8 @@
 			Accueil
 		</li>
 		{#if isLogged}
-			<li class="hover:cursor-pointer hover:text-blue" on:click={() => handlePageClick('explore')}>
-				Explorer
-			</li>
-			<li class="hover:cursor-pointer hover:text-blue">Classement</li>
+			<li class="hover:cursor-pointer hover:text-blue" on:click={() => handlePageClick("explore")}>Explorer</li>
+			<li class="hover:cursor-pointer hover:text-blue" on:click={() => handlePageClick("classement")}>Classement</li>
 		{:else}
 			<li class="hover:cursor-pointer hover:text-blue">A propos</li>
 		{/if}
@@ -30,12 +28,8 @@
 
 	<div class="flex gap-6 items-center">
 		{#if isLogged}
-			<i class="fa-solid fa-gear text-40 hover:cursor-pointer hover:text-blue" />
-			<img
-				class="w-16 h-16 rounded-50 hover:cursor-pointer"
-				src="profil_picture.jpg"
-				alt="image de profil"
-			/>
+			<i on:click={() => handlePageClick("setting")} class="fa-solid fa-gear text-40 hover:cursor-pointer hover:text-blue" />
+			<img on:click={() => handlePageClick("profile")} class="w-16 h-16 rounded-50 hover:cursor-pointer" src="profil_picture.jpg" alt="image de profil" />
 		{:else}
 			<Button link={'login'} fill={true} text={'Se connecter'} />
 			<Button link={'register'} fill={false} text={"S'inscrire"} />

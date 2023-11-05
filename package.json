@@ -33,6 +33,7 @@
 	"type": "module",
 	"dependencies": {
 		"svelte-store": "^0.0.2",
-		"svelte-use-form": "^2.10.0"
+		"svelte-use-form": "^2.10.0",
+		"mapbox-gl": "^2.15.0"
 	}
 }

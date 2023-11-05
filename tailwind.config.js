@@ -20,7 +20,6 @@ export default {
 			'blue': '#0390BF',
 			'blue-dark': '#0388B5',
 			'blue-white-light': '#EEF8FC',
-			'blue-dark': '#0388B5',
 			'night-blue': '#112A46',
 			'night-blue-light': '#eef4fb',
 			'night-blue-dark': '#122D47',
@@ -30,7 +29,10 @@ export default {
 			'black': '#000000',
 			'text-contrast': '#112A46',
 			'yellow': '#FFFD92',
-			'alert': '#C31952'
+			'alert': '#C31952',
+			'golden-yellow': '#FFDF00',
+			'stategray': '#708090',
+			'bronze': '#cd7f32'
 		},
 		fontSize: {
 			sm: '12px',

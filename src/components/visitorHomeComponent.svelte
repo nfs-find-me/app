@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Button from './button.svelte';
-	export let welcomeImages: Array<{ src: string; handle: string }>;
+	import type { PostType } from '../store/types';
+	export let welcomeImagesDisplay: PostType[];
 
 	let scrollY: number;
 </script>
@@ -15,12 +16,12 @@
 	</h1>
 
 	<div class="flex flex-row w-9/12 justify-between py-6 desktop-xl-max:overflow-x-scroll">
-		{#each welcomeImages as image, index}
+		{#each welcomeImagesDisplay as image, index}
 			<img
 				class="w-233 h-326 desktop-xl-max:w-full desktop-xl-max:h-full desktop-xl:rounded-15
             {index % 2 === 0 ? 'slide-in-bottom-before' : 'slide-in-bottom-after desktop-xl:mt-20'}"
-				src={image.src}
-				alt={image.handle}
+				src={image.picture?.thumbnail_url && ''}
+				alt={image.picture?.thumbnail_url && ''}
 			/>
 		{/each}
 	</div>

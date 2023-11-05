@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { currentPage } from '../store/pathStore';
 	import SearchComponent from './searchComponent.svelte';
+	import type { PostType } from '../store/types';
 
-	export let postImage: Array<{ src: string; handle: string }>;
+	export let postImage: PostType[];
 </script>
 
 {#if $currentPage == 'explore'}
@@ -17,8 +18,8 @@
 			<div class="relative overflow-hidden hover:cursor-pointer">
 				<img
 					class="w-full transition duration-300 ease-in-out hover:scale-110"
-					src={image.src}
-					alt={image.handle}
+					src={image.picture?.thumbnail_url}
+					alt={image.picture?.thumbnail_url}
 				/>
 				<div
 					class="absolute bottom-2 right-2 flex gap-2 items-center bg-white-secondary opacity-70 p-2 rounded-full"
