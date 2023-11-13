@@ -1,10 +1,18 @@
+import type { Cookies } from '@sveltejs/kit';
 import { BaseRestApi } from './Base.restAPi';
-
+import type { FeatureEnum } from './feature.enum';
 export abstract class BasePrivateRestApi extends BaseRestApi {
-	protected header = new Headers({
-		'Content-Type': 'application/json',
-		Authorization: `Bearer ${localStorage.getItem('token')}`
-	});
+	protected header?: Headers;
+
+	constructor(feature: FeatureEnum, cookies: Cookies) {
+		super(feature);
+		if (cookies.get('jwt')) {
+			this.header = new Headers({
+				'Content-Type': 'application/json',
+				Authorization: `Bearer ${cookies.get('jwt')}`
+			});
+		}
+	}
 
 	protected async getOne<T>(): Promise<T | Error> {
 		const type = BaseRestApi.getType(this.feature) as T;

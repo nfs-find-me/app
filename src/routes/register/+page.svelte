@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { enhance } from '$app/forms';
 	import Button from '../../components/button.svelte';
 	import Input from '../../components/input.svelte';
 	import LogoTitle from '../../components/logoTitle.svelte';
@@ -7,7 +8,6 @@
 	import Cgu from '../../components/cgu.svelte';
 	import type { User } from '../../model/user/User';
 	import { InputTypeEnum } from '../../enum/InputType.enum';
-	import { enhance } from '$app/forms';
 	import { ButtonTypeEnum } from '../../enum/ButtonType.enum';
 
 	let user: User = {

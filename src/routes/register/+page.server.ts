@@ -17,7 +17,7 @@ export const actions: Actions = {
 		user.email = data.get('email') as string;
 		user.password = data.get('password') as string;
 		user.username = data.get('username') as string;
-
+		console.log({ user });
 		await api.register(user);
 
 		return {

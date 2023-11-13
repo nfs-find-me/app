@@ -1,18 +1,19 @@
 import type { Actions, PageServerLoad } from './$types';
-import { AuthRestApi } from '../../api/feature/Auth.restAPI';
 import { User } from '../../model/user/User';
-import { validateEmail } from '$lib/helpers/formatString.helper';
+import { validateEmail } from '../../helpers/formatString.helper';
+import { AuthRestApi } from '../../api/feature/Auth.restAPI';
+import { CookiesHelper } from '../../helpers/cookies/cookies.helper';
+import { redirect } from '@sveltejs/kit';
 
-export const load = (async () => {
+export const load: PageServerLoad = (async () => {
 	return {};
 }) satisfies PageServerLoad;
 
 export const actions: Actions = {
-	default: async ({ request }) => {
+	default: async ({ cookies: cookies, request }) => {
 		const api = new AuthRestApi();
 		const user = new User();
 		const data = await request.formData();
-		/*
 		const usernameOrEmail = data.get('usernameEmail') as string;
 		const isUsernameOrEmail = validateEmail(usernameOrEmail);
 		if (isUsernameOrEmail) {
@@ -21,21 +22,22 @@ export const actions: Actions = {
 		if (!isUsernameOrEmail) {
 			user.username = usernameOrEmail;
 		}
-		*/
 		user.username = data.get('usernameEmail') as string;
 		user.password = data.get('password') as string;
-		//await api.login(user);
-
-		const response = await fetch('http://localhost:8081/api/auth/login', {
-			method: 'POST',
-			body: JSON.stringify(user),
-			headers: {
-				'Content-Type': 'application/json' // Set the content type to JSON
-			}
-		});
-		console.log({ response });
-		console.log({ status: response.status });
-		console.log({ json: await response.text() });
-		return { success: true };
+		let isValidForm: Boolean = true;
+		try {
+			const response = await api.login(user);
+			const tokens = response.data;
+			const expireTime = response.exp;
+			const cookiesHelper = new CookiesHelper(cookies);
+			cookiesHelper.setAuthCookies(user.username, tokens.jwtToken, tokens.refreshToken, expireTime);
+			isValidForm = true;
+		} catch (e) {
+			console.error({ e });
+			isValidForm = false;
+		}
+		if (isValidForm) {
+			throw redirect(302, '/');
+		}
 	}
 };
