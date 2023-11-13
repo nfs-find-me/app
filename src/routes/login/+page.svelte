@@ -8,17 +8,17 @@
 	import { InputTypeEnum } from '../../enum/InputType.enum';
 	import type { PageData } from './$types';
 	import { useForm, Hint, validators, minLength } from 'svelte-use-form';
-	import { connected, isLogged } from '../../store/isLogged';
+	import { connected, isLoggedStore } from '../../store/isLogged';
 	import type { Subscriber } from 'svelte/motion';
 	import { onDestroy } from 'svelte';
 
 	export let data: PageData;
 	console.log({ data });
 	connected(data.sendIsLoggedToFront);
-	let isConnected;
-	const subscribe = isLogged.subscribe((v) => (isConnected = v));
+	let isLogged;
+	const subscribe = isLoggedStore.subscribe((v) => (isLogged = v));
 
-	if (isConnected) {
+	if (isLogged) {
 		console.log('redirection :');
 	}
 	onDestroy(subscribe);
@@ -53,7 +53,6 @@
 
 		<Button type={ButtonTypeEnum.SUBMIT} text={'Se connecter'} />
 	</form>
-	<p>test : {data.isValidForm}</p>
 	{#if data.isValidForm}
 		<div
 			class="bg-red-light border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 m-4 shadow-md"
