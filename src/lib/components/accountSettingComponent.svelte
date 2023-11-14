@@ -1,5 +1,8 @@
-<script>
+<script lang="ts">
     import Button from "./common/button.svelte";
+    import { User } from "../../model/user/User";
+
+    export let user:User;
 
 </script>
 
@@ -13,8 +16,8 @@
                     <img class="w-20 h-20 rounded-50 hover:cursor-pointer" src="profil_picture.jpg" alt="image de profil">
         
                     <div>
-                        <p class="text-lg">Nom d'utilisateur : <span class="font-bold text-lg">John Doe</span></p>
-                        <p class="text-lg">Adresse email : <span class="font-bold text-lg">johndoe@gmail.com</span></p>
+                        <p class="text-lg">Nom d'utilisateur : <span class="font-bold text-lg">{user.username}</span></p>
+                        <p class="text-lg">Adresse email : <span class="font-bold text-lg">{user.email}</span></p>
                     </div>
                 </div>
             </div>
