@@ -69,4 +69,5 @@ export class AuthRestApi extends BasePublicRestApi {
 		}
 		throw response as Error;
 	}
+	
 }

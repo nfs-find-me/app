@@ -10,6 +10,12 @@
 	import ProfileComponent from '../components/profileComponent.svelte';
 
 	import { currentImage, currentPage } from '../store/pathStore';
+	import type { PageData } from './$types';
+
+	export let data: PageData;
+	const user = data.user;
+	console.log({currentUser : user});
+
 </script>
 
 <NavBar {isLogged} />

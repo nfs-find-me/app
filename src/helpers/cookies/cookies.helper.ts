@@ -7,8 +7,15 @@ export class CookiesHelper {
 	constructor(cookies: Cookies) {
 		this.cookies = cookies;
 	}
-	public setAuthCookies(login: string, jwt: string, refreshToken: string, expireTime: number) {
+	public setAuthCookies(login: string, userId:string, jwt: string, refreshToken: string, expireTime: number) {
 		this.cookies.set('login', login, {
+			httpOnly: true,
+			sameSite: 'strict',
+			secure: false,
+			path: '/',
+			maxAge: expireTime
+		});
+		this.cookies.set('userId', userId, {
 			httpOnly: true,
 			sameSite: 'strict',
 			secure: false,
@@ -51,6 +58,7 @@ export class CookiesHelper {
 	public async refreshCookies(cookies: Cookies) {
 		const login = cookies.get('login');
 		const refreshToken = cookies.get('refresh');
+		console.log({refresh1 : refreshToken})
 		if (login === undefined || refreshToken === undefined) {
 			throw Error;
 		}
@@ -61,5 +69,11 @@ export class CookiesHelper {
 		const expireTime = response.exp;
 		const cookiesHelper = new CookiesHelper(cookies);
 		cookiesHelper.setTokenCookies(tokens.jwtToken, tokens.refreshToken, expireTime);
+		console.log({refresh2 : tokens.refreshToken})
 	}
+
+	public getUserId(cookies: Cookies){
+		return cookies.get('userId');
+	}
+
 }
