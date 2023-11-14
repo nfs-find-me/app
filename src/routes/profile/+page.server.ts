@@ -1,9 +1,8 @@
-import { UserRestApi } from '../api/feature/User.restAPI';
-import { CookiesHelper } from '../helpers/cookies/cookies.helper';
 import type { PageServerLoad } from './$types';
+import { UserRestApi } from '../../api/feature/User.restAPI';
+import { CookiesHelper } from '../../helpers/cookies/cookies.helper';
 
-export const load:PageServerLoad = (async ({ cookies }) => {
-
+export const load:PageServerLoad = (async ({cookies}) => {
     const api = new UserRestApi(cookies);
     const cookiesHelper = new CookiesHelper(cookies);
     const userId = cookiesHelper.getUserId(cookies);
@@ -14,6 +13,4 @@ export const load:PageServerLoad = (async ({ cookies }) => {
     }else{
         return {errorMessage: "Vous devez être connecté."}
     }
-    
-    
 }) satisfies PageServerLoad;
