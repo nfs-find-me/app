@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
-	import Button from '../../components/button.svelte';
-	import Input from '../../components/input.svelte';
-	import LogoTitle from '../../components/logoTitle.svelte';
-	import NavBar from '../../components/navBar.svelte';
-	import Modal from '../../components/modal.svelte';
-	import Cgu from '../../components/cgu.svelte';
+	import Button from '$lib/components/common/button.svelte';
+	import Input from '$lib/components/common/input.svelte';
+	import LogoTitle from '$lib/components/common/logoTitle.svelte';
+	import NavBar from '$lib/components/common/navBar.svelte';
+	import Modal from '$lib/components/common/modal.svelte';
+	import Cgu from '$lib/components/cgu.svelte';
 	import type { User } from '../../model/user/User';
 	import { InputTypeEnum } from '../../enum/InputType.enum';
 	import { ButtonTypeEnum } from '../../enum/ButtonType.enum';

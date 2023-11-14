@@ -1,7 +1,7 @@
 <script lang="ts">
 	import VisitorHomeComponent from './visitorHomeComponent.svelte';
 	import UserHomeComponent from './userHomeComponent.svelte';
-	import { welcomeImages } from '../store/images';
+	import { welcomeImages } from '../../store/images';
 
 	export let isLogged: Boolean;
 

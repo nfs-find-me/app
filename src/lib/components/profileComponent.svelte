@@ -1,8 +1,5 @@
 <script lang="ts">
-	import type { User } from "../model/user/User";
-
 let onglet: string = 'content';
-// let currentUser!: User;
 
 function sectionChange(newOnglet: string){
         onglet = newOnglet;
