@@ -10,20 +10,27 @@
 	import ProfileComponent from '../components/profileComponent.svelte';
 
 	import { currentImage, currentPage } from '../store/pathStore';
+	import PostComponent from '../components/PostComponent.svelte';
 </script>
 
-<NavBar {isLogged} />
+{#if $currentPage !== 'post'}
+	<NavBar {isLogged} />
+{/if}
 
-{#if $currentPage == 'home' || $currentPage == 'explore'}
+{#if $currentPage === 'home' || $currentPage === 'explore'}
 	<HomeComponent {isLogged} />
-{:else if $currentPage == 'classement'}
+{:else if $currentPage === 'classement'}
 	<ClassementComponent {isLogged} />
-{:else if $currentPage == 'setting'}
+{:else if $currentPage === 'setting'}
 	<SettingComponent {isLogged} />
-{:else if $currentPage == 'profile'}
+{:else if $currentPage === 'profile'}
 	<ProfileComponent />
+{:else if $currentPage === 'post' && $currentImage}
+	<PostComponent />
 {:else}
 	<p>No true Condition is true</p>
 {/if}
 
-<Footer {isLogged} />
+{#if $currentPage !== 'post'}
+	<Footer {isLogged} />
+{/if}
