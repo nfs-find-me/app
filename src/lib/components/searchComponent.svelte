@@ -1,5 +1,5 @@
 <script lang="ts">
-    import FilterBtn from "./filterBtn.svelte";
+    import FilterBtn from "./common/filterBtn.svelte";
 
     const filterBtn: Array<{ text: string }> = [
         { text: 'Plus récents'},

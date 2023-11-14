@@ -1,5 +1,5 @@
 <script lang="ts">
-    import ErrorCard from "./errorCard.svelte";
+    import ErrorCard from "./common/errorCard.svelte";
     import AccountSettingComponent from "./accountSettingComponent.svelte";
     import SecuritySettingComponent from "./securitySettingComponent.svelte";
 

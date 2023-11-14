@@ -1,14 +1,8 @@
 <script lang="ts">
-	import { currentPage } from '../store/pathStore';
-	import SearchComponent from './searchComponent.svelte';
-	import type { PostType } from '../store/types';
+	import type { PostType } from '../../store/types';
 
 	export let postImage: PostType[];
 </script>
-
-{#if $currentPage == 'explore'}
-	<SearchComponent />
-{/if}
 
 <section>
 	<div

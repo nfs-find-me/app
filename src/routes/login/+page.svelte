@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
-	import Button from '../../components/button.svelte';
-	import Input from '../../components/input.svelte';
-	import LogoTitle from '../../components/logoTitle.svelte';
-	import NavBar from '../../components/navBar.svelte';
+	import Button from '$lib/components/common/button.svelte';
+	import Input from '$lib/components/common/input.svelte';
+	import LogoTitle from '$lib/components/common/logoTitle.svelte';
+	import NavBar from '$lib/components/common/navBar.svelte';
 	import { ButtonTypeEnum } from '../../enum/ButtonType.enum';
 	import { InputTypeEnum } from '../../enum/InputType.enum';
 	import type { PageData } from './$types';
