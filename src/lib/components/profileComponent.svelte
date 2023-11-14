@@ -1,9 +1,14 @@
 <script lang="ts">
-let onglet: string = 'content';
+	import { User } from "../../model/user/User";
 
-function sectionChange(newOnglet: string){
-        onglet = newOnglet;
-}
+    let onglet: string = 'content';
+    export let user:User;
+    const countFollowers = user.followers?.length;
+    const countFollowing = user.following?.length;
+
+    function sectionChange(newOnglet: string){
+            onglet = newOnglet;
+    }
 
 </script>
 
@@ -12,10 +17,10 @@ function sectionChange(newOnglet: string){
         <img class="w-40 h-40 rounded-full hover:cursor-pointer" src="profil_picture.jpg" alt="image de profil">
 
         <div class="flex flex-col items-center">
-            <h2 class="font-bold text-xxl">JohnDoe</h2>
-            <p>johndoe@gmail.com</p>
-            <p>0 abonnement - 0 abonné</p>
-            <p class="text-lg font-bold"><span class="text-blue">256</span> points</p>
+            <h2 class="font-bold text-xxl">{user.username}</h2>
+            <p>{user.email}</p>
+            <p>{countFollowers} abonnement - {countFollowing} abonné</p>
+            <p class="text-lg font-bold"><span class="text-blue">{user.score}</span> points</p>
         </div>
     </div>
 

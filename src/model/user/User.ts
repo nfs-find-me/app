@@ -9,7 +9,8 @@ export class User {
 	email?: string;
 	password?: string;
 	avatar?: string;
-	friends?: User[];
+	followers?: User[];
+	following?: User[];
 	roles?: Role[] = [Role.USER, Role.UNVERIFIED];
 	score?: number;
 	biography?: string;
