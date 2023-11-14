@@ -3,7 +3,6 @@
 	import Button from '$lib/components/common/button.svelte';
 	import Input from '$lib/components/common/input.svelte';
 	import LogoTitle from '$lib/components/common/logoTitle.svelte';
-	import NavBar from '$lib/components/common/navBar.svelte';
 	import Modal from '$lib/components/common/modal.svelte';
 	import Cgu from '$lib/components/cgu.svelte';
 	import type { User } from '../../model/user/User';
@@ -18,8 +17,6 @@
 
 	let showModal = false;
 </script>
-
-<NavBar isLogged={false} />
 
 <section
 	class="container mx-auto bg-center flex flex-col justify-center items-center h-screen max-h-[80vh]"

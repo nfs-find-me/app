@@ -3,7 +3,6 @@
 	import Button from '$lib/components/common/button.svelte';
 	import Input from '$lib/components/common/input.svelte';
 	import LogoTitle from '$lib/components/common/logoTitle.svelte';
-	import NavBar from '$lib/components/common/navBar.svelte';
 	import { ButtonTypeEnum } from '../../enum/ButtonType.enum';
 	import { InputTypeEnum } from '../../enum/InputType.enum';
 	import type { PageData } from './$types';
@@ -24,8 +23,6 @@
 	onDestroy(subscribe);
 	const form = useForm();
 </script>
-
-<NavBar isLogged={false} />
 
 <section
 	class="container mx-auto bg-center flex flex-col justify-center items-center h-screen max-h-[80vh]"
