@@ -2,11 +2,13 @@
     import ErrorCard from "./common/errorCard.svelte";
     import AccountSettingComponent from "./accountSettingComponent.svelte";
     import SecuritySettingComponent from "./securitySettingComponent.svelte";
+    import { User } from "../../model/user/User";
 
     let errorMessage = "Vous n'êtes pas autorisé à accéder à ce contenu.";
     let ongletInfo = {id: 1, name: "Mon compte"};
 
     export let isLogged: Boolean;
+    export let user:User;
 
     function updateOngletInfo(id:number, name:string){
         ongletInfo = {id: id, name: name};
@@ -40,7 +42,7 @@
         </nav>
 
         {#if ongletInfo.id === 1}
-            <AccountSettingComponent></AccountSettingComponent>
+            <AccountSettingComponent {user}></AccountSettingComponent>
         {:else if ongletInfo.id === 2}
             <SecuritySettingComponent></SecuritySettingComponent>
         {/if}
