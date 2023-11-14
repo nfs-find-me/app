@@ -12,14 +12,10 @@
 	import { onDestroy } from 'svelte';
 
 	export let data: PageData;
-	console.log({ data });
 	connected(data.sendIsLoggedToFront);
 	let isLogged;
 	const subscribe = isLoggedStore.subscribe((v) => (isLogged = v));
 
-	if (isLogged) {
-		console.log('redirection :');
-	}
 	onDestroy(subscribe);
 	const form = useForm();
 </script>

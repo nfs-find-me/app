@@ -8,7 +8,6 @@ export class jwtHelper {
 		try {
 			const api = new AuthRestApi();
 			const token = await api.refreshToken(data);
-			console.log({ token });
 
 			return '';
 		} catch {

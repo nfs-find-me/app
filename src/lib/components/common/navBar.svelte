@@ -2,7 +2,6 @@
 	import Button from './button.svelte';
 
 	export let isLogged: Boolean;
-	console.log({ isLogged });
 </script>
 
 <!-- Desktop Nav -->

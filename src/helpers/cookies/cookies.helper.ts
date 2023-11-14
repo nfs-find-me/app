@@ -58,7 +58,6 @@ export class CookiesHelper {
 	public async refreshCookies(cookies: Cookies) {
 		const login = cookies.get('login');
 		const refreshToken = cookies.get('refresh');
-		console.log({refresh1 : refreshToken})
 		if (login === undefined || refreshToken === undefined) {
 			throw Error;
 		}
@@ -69,7 +68,6 @@ export class CookiesHelper {
 		const expireTime = response.exp;
 		const cookiesHelper = new CookiesHelper(cookies);
 		cookiesHelper.setTokenCookies(tokens.jwtToken, tokens.refreshToken, expireTime);
-		console.log({refresh2 : tokens.refreshToken})
 	}
 
 	public getUserId(cookies: Cookies){

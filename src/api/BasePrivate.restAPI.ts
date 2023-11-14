@@ -38,25 +38,6 @@ export abstract class BasePrivateRestApi extends BaseRestApi {
 		}
 	}
 
-	// protected async getOne<T>(id: string): Promise<T | Error> {
-	// 	const type = BaseRestApi.getType(this.feature) as T;
-	// 	try {
-	// 		const response = await fetch(this.server + this.feature + id, {
-	// 			method: 'GET',
-	// 			headers: this.header
-	// 		});
-
-	// 		if (response.status === 200) {
-	// 			return await response.json();
-	// 		} else {
-	// 			throw new Error(response.statusText);
-	// 		}
-	// 	} catch (error) {
-	// 		console.log(error);
-	// 		throw new Error(`Erreur lors de la récupération du ${this.feature}`);
-	// 	}
-	// }
-
 	protected async getAll<T>(): Promise<T[] | Error> {
 		const type = BaseRestApi.getType(this.feature) as T;
 		try {

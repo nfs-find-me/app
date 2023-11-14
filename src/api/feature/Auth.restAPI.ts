@@ -8,7 +8,6 @@ export class AuthRestApi extends BasePublicRestApi {
 	}
 
 	public async registerOld<T>(data: T): Promise<T | Error> {
-		console.log('register', { link: this.server + this.feature + '/register' });
 
 		const type = BasePublicRestApi.getType(this.feature) as T;
 		try {
@@ -30,14 +29,12 @@ export class AuthRestApi extends BasePublicRestApi {
 	}
 
 	public async register<T>(data: T): Promise<string | Error> {
-		console.log('fix resgister');
 
 		const response: Response | Error = await this.request({
 			method: HTTP.POST,
 			url: 'register',
 			data
 		});
-		console.log({ response });
 
 		if (response instanceof Response) {
 			return response.json();
