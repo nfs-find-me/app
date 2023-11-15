@@ -1,4 +1,5 @@
 <script lang="ts">
+	import '../app.css';
 	import '../style/button.css';
 	import '../style/input.css';
 	import '../style/animation.css';
