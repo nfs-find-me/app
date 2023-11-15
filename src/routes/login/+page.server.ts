@@ -31,8 +31,9 @@ export const actions: Actions = {
 			const tokens = response.data;
 			const expireTime = response.exp;
 			const userId = response.data.userId;
+			const username = response.data.username;
 			const cookiesHelper = new CookiesHelper(cookies);
-			cookiesHelper.setAuthCookies(user.username, userId, tokens.jwtToken, tokens.refreshToken, expireTime);
+			cookiesHelper.setAuthCookies(username, userId, tokens.jwtToken, tokens.refreshToken, expireTime);
 			isValidForm = true;
 		} catch (e) {
 			console.error({ e });
