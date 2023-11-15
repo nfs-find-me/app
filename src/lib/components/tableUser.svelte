@@ -42,6 +42,7 @@
 						<label for="checkbox-table-search-1" class="sr-only">checkbox</label>
 					</div>
 				</td>
+				<td class="px-6 py-4"> {user.username} </td>
 				<td class="px-6 py-4"> {user.email} </td>
 				<td class="px-6 py-4"> {user.avatar} </td>
 				<td class="px-6 py-4"> {user.followers.length} </td>

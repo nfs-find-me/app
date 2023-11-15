@@ -45,6 +45,7 @@
 				<td class="px-6 py-4"> {post.id} </td>
 				<td class="px-6 py-4"> {post.userId} </td>
 				<td class="px-6 py-4"> {post.picture} </td>
+				<td class="px-6 py-4"> {post.geolocation} </td>
 				<td class="px-6 py-4"> {post.view?.length ?? 0} </td>
 				<td class="px-6 py-4"> {post.like?.length ?? 0} </td>
 				<td class="px-6 py-4"> {post.verified} </td>
