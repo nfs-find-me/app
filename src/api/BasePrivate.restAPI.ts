@@ -30,7 +30,14 @@ export abstract class BasePrivateRestApi extends BaseRestApi {
 		if (options.data && options.method !== HTTP.GET) {
 			init.body = JSON.stringify(options.data);
 		}
-		const response = await fetch(this.server + this.feature + '/' + options.url, init);
+		console.info('INFO ', {
+			method: options.method,
+			url: this.server + this.feature + (!!options.url ? '/' + options.url : '')
+		});
+		const response = await fetch(
+			this.server + this.feature + (!!options.url ? '/' + options.url : ''),
+			init
+		);
 		if (response.status === 200 || response.status === 201) {
 			return response;
 		} else {

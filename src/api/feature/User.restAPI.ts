@@ -8,10 +8,21 @@ export class UserRestApi extends BasePrivateRestApi {
 		super(FeatureEnum.USER, cookies);
 	}
 
-	public async getOne(id:string) {
+	public async getOne(id: string) {
 		const response: Response | Error = await this.request({
 			method: HTTP.GET,
-			url: id,
+			url: id
+		});
+
+		if (response instanceof Response) {
+			return response.json();
+		}
+		throw response as Error;
+	}
+
+	public async getAll() {
+		const response: Response | Error = await this.request({
+			method: HTTP.GET
 		});
 
 		if (response instanceof Response) {
