@@ -24,13 +24,22 @@ export const actions: Actions = {
 		}
 		user.username = data.get('usernameEmail') as string;
 		user.password = data.get('password') as string;
+		user.userId = data.get('userId') as string;
 		let isValidForm: Boolean = true;
 		try {
 			const response = await api.login(user);
 			const tokens = response.data;
 			const expireTime = response.exp;
+			const userId = response.data.userId;
+			const username = response.data.username;
 			const cookiesHelper = new CookiesHelper(cookies);
-			cookiesHelper.setAuthCookies(user.username, tokens.jwtToken, tokens.refreshToken, expireTime);
+			cookiesHelper.setAuthCookies(
+				username,
+				userId,
+				tokens.jwtToken,
+				tokens.refreshToken,
+				expireTime
+			);
 			isValidForm = true;
 		} catch (e) {
 			console.error({ e });

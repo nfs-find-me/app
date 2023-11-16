@@ -1,9 +1,9 @@
 <script lang="ts">
 	import MapComponent from './mapComponent.svelte';
-	import { welcomeImages } from '../store/images';
-	import { currentImage } from '../store/pathStore';
+	import { welcomeImages } from '../../store/images';
+	export let postId: string;
 	const currentPost = welcomeImages.find((e) => {
-		return e._id === $currentImage;
+		return e._id === postId;
 	});
 	console.log(currentPost);
 	let showAnswer = true;

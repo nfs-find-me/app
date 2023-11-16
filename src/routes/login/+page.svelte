@@ -1,9 +1,8 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
-	import Button from '../../components/button.svelte';
-	import Input from '../../components/input.svelte';
-	import LogoTitle from '../../components/logoTitle.svelte';
-	import NavBar from '../../components/navBar.svelte';
+	import Button from '$lib/components/common/button.svelte';
+	import Input from '$lib/components/common/input.svelte';
+	import LogoTitle from '$lib/components/common/logoTitle.svelte';
 	import { ButtonTypeEnum } from '../../enum/ButtonType.enum';
 	import { InputTypeEnum } from '../../enum/InputType.enum';
 	import type { PageData } from './$types';
@@ -13,19 +12,13 @@
 	import { onDestroy } from 'svelte';
 
 	export let data: PageData;
-	console.log({ data });
 	connected(data.sendIsLoggedToFront);
 	let isLogged;
 	const subscribe = isLoggedStore.subscribe((v) => (isLogged = v));
 
-	if (isLogged) {
-		console.log('redirection :');
-	}
 	onDestroy(subscribe);
 	const form = useForm();
 </script>
-
-<NavBar isLogged={false} />
 
 <section
 	class="container mx-auto bg-center flex flex-col justify-center items-center h-screen max-h-[80vh]"

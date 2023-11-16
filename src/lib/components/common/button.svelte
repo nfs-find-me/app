@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ButtonTypeEnum } from '../enum/ButtonType.enum';
+	import { ButtonTypeEnum } from "../../../enum/ButtonType.enum";
 	export let text = 'TEXT BUTTON A MODIFIER';
 	export let fill = true;
 	export let link: string | null = null;

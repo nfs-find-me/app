@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Button from './button.svelte';
-	import type { PostType } from '../store/types';
+	import Button from './common/button.svelte';
+	import type { PostType } from '../../store/types';
 	export let welcomeImagesDisplay: PostType[];
 
 	let scrollY: number;

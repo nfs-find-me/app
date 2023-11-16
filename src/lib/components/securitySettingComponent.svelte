@@ -1,8 +1,8 @@
 <script>
-    import Input from "./input.svelte";
-    import { InputTypeEnum } from "../enum/InputType.enum";
-    import Button from "./button.svelte";
-    import { ButtonTypeEnum } from "../enum/ButtonType.enum";
+    import Input from "./common/input.svelte";
+    import { InputTypeEnum } from "../../enum/InputType.enum";
+    import Button from "./common/button.svelte";
+    import { ButtonTypeEnum } from "../../enum/ButtonType.enum";
 </script>
 
 <section id="securityInfo" class="flex flex-col w-full px-10 py-16 gap-14">

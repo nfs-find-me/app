@@ -1,26 +1,22 @@
 <script lang="ts">
 	import Button from './button.svelte';
-	import { handlePageClick } from '../store/pathStore';
 
 	export let isLogged: Boolean;
-	console.log({ isLogged });
 </script>
 
 <!-- Desktop Nav -->
 
 <nav class="tablet-max:hidden flex justify-between items-center p-4">
 	<a href="/" class="flex flex-row gap-2 items-center hover:cursor-pointer">
-		<img class="w-20" src="favicon.svg" alt="logo" />
+		<img class="w-20" src="../favicon.svg" alt="logo" />
 		<h2 class="text-xxl font-bold text-blue">FindMe</h2>
 	</a>
 
 	<ul class="flex gap-6 font-bold text-lg">
-		<li class="hover:cursor-pointer hover:text-blue" on:click={() => handlePageClick('home')}>
-			Accueil
-		</li>
+		<li class="hover:cursor-pointer hover:text-blue"><a href="/">Accueil</a></li>
 		{#if isLogged}
-			<li class="hover:cursor-pointer hover:text-blue" on:click={() => handlePageClick("explore")}>Explorer</li>
-			<li class="hover:cursor-pointer hover:text-blue" on:click={() => handlePageClick("classement")}>Classement</li>
+			<li class="hover:cursor-pointer hover:text-blue"><a href="/explore">Explorer</a></li>
+			<li class="hover:cursor-pointer hover:text-blue"><a href="/ranked">Classement</a></li>
 		{:else}
 			<li class="hover:cursor-pointer hover:text-blue">A propos</li>
 		{/if}
@@ -28,8 +24,16 @@
 
 	<div class="flex gap-6 items-center">
 		{#if isLogged}
-			<i on:click={() => handlePageClick("setting")} class="fa-solid fa-gear text-40 hover:cursor-pointer hover:text-blue" />
-			<img on:click={() => handlePageClick("profile")} class="w-16 h-16 rounded-50 hover:cursor-pointer" src="profil_picture.jpg" alt="image de profil" />
+			<a href="/parameters"
+				><i class="fa-solid fa-gear text-40 hover:cursor-pointer hover:text-blue" /></a
+			>
+			<a href="/profile"
+				><img
+					class="w-16 h-16 rounded-50 hover:cursor-pointer"
+					src="profil_picture.jpg"
+					alt="image de profil"
+				/></a
+			>
 		{:else}
 			<Button link={'login'} fill={true} text={'Se connecter'} />
 			<Button link={'register'} fill={false} text={"S'inscrire"} />

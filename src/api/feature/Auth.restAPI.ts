@@ -8,8 +8,6 @@ export class AuthRestApi extends BasePublicRestApi {
 	}
 
 	public async registerOld<T>(data: T): Promise<T | Error> {
-		console.log('register', { link: this.server + this.feature + '/register' });
-
 		const type = BasePublicRestApi.getType(this.feature) as T;
 		try {
 			const response = await fetch(this.server + this.feature + '/register', {
@@ -30,14 +28,11 @@ export class AuthRestApi extends BasePublicRestApi {
 	}
 
 	public async register<T>(data: T): Promise<string | Error> {
-		console.log('fix resgister');
-
 		const response: Response | Error = await this.request({
 			method: HTTP.POST,
 			url: 'register',
 			data
 		});
-		console.log({ response });
 
 		if (response instanceof Response) {
 			return response.json();
@@ -45,15 +40,21 @@ export class AuthRestApi extends BasePublicRestApi {
 		throw response as Error;
 	}
 
-	public async login<T>(data: T): Promise<string | Error> {
+	public async login<T>(data: T): Promise<{
+		data: { jwtToken: string; refreshToken: string; userId: string; username: string };
+		exp: number;
+		statusCode: number;
+	}> {
 		const response: Response | Error = await this.request({
 			method: HTTP.POST,
 			url: 'login',
 			data
 		});
 		if (response instanceof Response) {
+			console.log('response json : ', response);
 			return response.json();
 		}
+		console.error('error json : ', response);
 		throw response as Error;
 	}
 
