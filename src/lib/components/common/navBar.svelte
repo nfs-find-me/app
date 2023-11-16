@@ -8,7 +8,7 @@
 
 <nav class="tablet-max:hidden flex justify-between items-center p-4">
 	<a href="/" class="flex flex-row gap-2 items-center hover:cursor-pointer">
-		<img class="w-20" src="favicon.svg" alt="logo" />
+		<img class="w-20" src="../favicon.svg" alt="logo" />
 		<h2 class="text-xxl font-bold text-blue">FindMe</h2>
 	</a>
 
@@ -24,8 +24,16 @@
 
 	<div class="flex gap-6 items-center">
 		{#if isLogged}
-			<a href="/parameters"><i class="fa-solid fa-gear text-40 hover:cursor-pointer hover:text-blue" /></a>
-			<a href="/profile"><img class="w-16 h-16 rounded-50 hover:cursor-pointer" src="profil_picture.jpg" alt="image de profil" /></a>
+			<a href="/parameters"
+				><i class="fa-solid fa-gear text-40 hover:cursor-pointer hover:text-blue" /></a
+			>
+			<a href="/profile"
+				><img
+					class="w-16 h-16 rounded-50 hover:cursor-pointer"
+					src="profil_picture.jpg"
+					alt="image de profil"
+				/></a
+			>
 		{:else}
 			<Button link={'login'} fill={true} text={'Se connecter'} />
 			<Button link={'register'} fill={false} text={"S'inscrire"} />
