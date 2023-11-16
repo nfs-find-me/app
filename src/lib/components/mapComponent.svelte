@@ -25,14 +25,14 @@
 		}}
 		class="w-10 h-10 transition-all bg-red-300 text-black rounded-full grid place-items-center"
 	>
-		<img src="favicon.svg" class="h-10" alt="marker" />
+		<img src="../favicon.svg" class="h-10" alt="marker" />
 	</Marker>
 	{#if showAnswer === true}
 		<Marker
 			lngLat={[post.geolocation?.posX, post.geolocation?.posY]}
 			class="w-8 h-8 bg-red-300 text-black rounded-full grid place-items-center"
 		>
-			<img src="favicon.svg" class="h-8" alt="marker" />
+			<img src="../favicon.svg" class="h-8" alt="marker" />
 		</Marker>
 	{/if}
 </MapLibre>
