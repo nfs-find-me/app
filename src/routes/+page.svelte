@@ -10,7 +10,7 @@
 	import ProfileComponent from '../components/profileComponent.svelte';
 
 	import { currentImage, currentPage } from '../store/pathStore';
-	import PostComponent from '../components/PostComponent.svelte';
+	import PostComponent from '../components/postComponent.svelte';
 </script>
 
 {#if $currentPage !== 'post'}
