@@ -16,15 +16,15 @@
             <div class="flex flex-col gap-4 desktop-max:items-center">
                 <h3 class="text-lg font-bold text-blue">Navigation</h3>
                 <ul class="flex flex-col gap-2 font-semibold desktop-max:items-center">
-                    <li><a href="#"></a>Accueil</li>
+                    <li><a href="/"></a>Accueil</li>
                     {#if isLogged }
-                        <li><a href="#">Profil</a></li>
-                        <li><a href="#">Explorer</a></li>
-                        <li><a href="#">Déconnexion</a></li>
+                        <li><a href="/profile">Profil</a></li>
+                        <li><a href="/explore">Explorer</a></li>
+                        <li><a href="/logout">Déconnexion</a></li>
                     {:else}
-                        <li><a href="#">Inscription</a></li>
-                        <li><a href="#">Connexion</a></li>
-                        <li><a href="#">A propos</a></li>
+                        <li><a href="/register">Inscription</a></li>
+                        <li><a href="/login">Connexion</a></li>
+                        <li><a href="/about">A propos</a></li>
                     {/if}
                 </ul>
             </div>
@@ -32,8 +32,8 @@
             <div class="flex flex-col gap-4 desktop-max:items-center">
                 <h3 class="text-lg font-bold text-blue">Confidentialité</h3>
                 <ul class="flex flex-col gap-2 font-semibold desktop-max:items-center">
-                    <li><a href="#">Politique de confidentialité</a></li>
-                    <li><a href="#">Mentions légales</a></li>
+                    <li><a href="/policy">Politique de confidentialité</a></li>
+                    <li><a href="/legals">Mentions légales</a></li>
                 </ul>
             </div>
 
@@ -60,7 +60,7 @@
     </div>
 
     <div class="border-t-4 border-blue">
-        <p class="text-center py-8 font-bold">	&copy; Copyright 2023 - FindMe</p>
+        <p class="text-center py-8 font-bold">&copy; Copyright 2023 - Tous les droits réservés.</p>
     </div>
   
 </footer>
