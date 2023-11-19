@@ -1,5 +1,24 @@
-<script>
-	export let showModal; // boolean
+<script lang="ts">
+	import Button from './button.svelte';
+	import { createEventDispatcher } from 'svelte';
+	const dispatch = createEventDispatcher();
+
+	export let showModal: boolean = false; // boolean
+	export let title: string = '';
+	export let content: string = '';
+	export let buttonTextConfirm: string = 'valider';
+	export let buttonTextCancel: string = 'Annuler';
+
+	function sayHello() {
+		dispatch('confirm', {
+			text: 'Hello!'
+		});
+	}
+
+	function confirm() {
+		dispatch('confirm', true);
+		dialog.close();
+	}
 
 	let dialog; // HTMLDialogElement
 
@@ -13,19 +32,34 @@
 	on:click|self={() => dialog.close()}
 >
 	<!-- svelte-ignore a11y-no-static-element-interactions -->
-	<div on:click|stopPropagation>
+	<div class="flex flex-col items-center justify-between" on:click|stopPropagation>
 		<slot name="header" />
-		<hr />
+		<h2 class="text-xl">{title}</h2>
+
+		{content}
 		<slot />
-		<hr />
-		<!-- svelte-ignore a11y-autofocus -->
-		<button autofocus on:click={() => dialog.close()}>close modal</button>
+		<div class="flex space-x-20 pt-20 justify-center content-center">
+			<p on:click={() => dialog.close()}>{buttonTextCancel}</p>
+			<button class="btn btn-color-blue btn-fill" on:click={() => confirm()}>
+				{buttonTextConfirm}
+			</button>
+		</div>
 	</div>
 </dialog>
 
 <style>
+	.flex {
+		height: 100%;
+	}
+	p {
+		cursor: pointer;
+	}
+	button {
+		width: 200px;
+	}
 	dialog {
-		max-width: 32em;
+		width: 32em;
+
 		border-radius: 0.2em;
 		border: none;
 		padding: 0;
@@ -57,8 +91,5 @@
 		to {
 			opacity: 1;
 		}
-	}
-	button {
-		display: block;
 	}
 </style>

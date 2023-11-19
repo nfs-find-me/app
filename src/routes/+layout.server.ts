@@ -1,9 +1,12 @@
 import type { LayoutServerLoad } from './$types';
 import { CookiesHelper } from '../helpers/cookies/cookies.helper';
+import { json, type RequestHandler } from '@sveltejs/kit';
 
 export const load: LayoutServerLoad = (async ({ cookies }) => {
 	let sendIsLoggedToFront: Boolean = false;
 	try {
+		console.log('log cookie');
+
 		const cookiesHelper = new CookiesHelper(cookies);
 		await cookiesHelper.refreshCookies(cookies);
 		sendIsLoggedToFront = true;
