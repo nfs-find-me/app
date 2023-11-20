@@ -5,7 +5,7 @@ import { json, type RequestHandler } from '@sveltejs/kit';
 export const load: LayoutServerLoad = (async ({ cookies }) => {
 	let sendIsLoggedToFront: Boolean = false;
 	try {
-		console.log('log cookie');
+		console.log('ON PASSE ICI?');
 
 		const cookiesHelper = new CookiesHelper(cookies);
 		await cookiesHelper.refreshCookies(cookies);

@@ -19,13 +19,9 @@
 	let isLoggingOut: boolean;
 	const subscribe = isLoggedStore.subscribe((v) => (isLogged = v));
 	const subscribeLoggingOut = isLoggingOutStore.subscribe((v) => (isLoggingOut = v));
-
-	$: isLoggingOut, logoutServer();
-
-	//do something here
-
 	export let data: LayoutData;
-	connected(data.sendIsLoggedToFront);
+	$: isLogged, connected(data.sendIsLoggedToFront);
+	$: isLoggingOut, logoutServer();
 
 	async function logoutServer() {
 		if (canLogout()) {
