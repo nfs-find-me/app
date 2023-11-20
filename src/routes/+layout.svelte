@@ -20,6 +20,7 @@
 	const subscribe = isLoggedStore.subscribe((v) => (isLogged = v));
 	const subscribeLoggingOut = isLoggingOutStore.subscribe((v) => (isLoggingOut = v));
 	export let data: LayoutData;
+	console.log(data.sendIsLoggedToFront);
 	$: isLogged, connected(data.sendIsLoggedToFront);
 	$: isLoggingOut, logoutServer();
 
@@ -39,5 +40,4 @@
 <NavBar {isLogged} />
 
 <slot />
-<p>Connexion : {isLogged}</p>
 <FooterComponent {isLogged} />

@@ -10,7 +10,7 @@ export const load: LayoutServerLoad = (async ({ cookies }) => {
 		await cookiesHelper.refreshCookies(cookies);
 		sendIsLoggedToFront = true;
 	} catch {
-		sendIsLoggedToFront = true;
+		sendIsLoggedToFront = false;
 		// sendIsLoggedToFront = false;
 	}
 	return {
