@@ -2,13 +2,13 @@ export class Post {
 	id?: string;
 	createdAt?: Date;
 	updatedAt?: Date;
-	
+
 	userId?: string;
 	picture?: string;
 	description?: string;
 	geolocation?: PostGeolocation;
-	view?: PostView;
-	like?: PostLike;
+	view?: PostView[];
+	like?: PostLike[];
 	verified: boolean = false;
 }
 

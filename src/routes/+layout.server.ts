@@ -1,5 +1,6 @@
 import type { LayoutServerLoad } from './$types';
 import { CookiesHelper } from '../helpers/cookies/cookies.helper';
+import { json, type RequestHandler } from '@sveltejs/kit';
 import type { PageServerLoad } from '../../.svelte-kit/types/src/routes/login/$types';
 
 export const load: LayoutServerLoad = (async ({ cookies }) => {
@@ -9,7 +10,7 @@ export const load: LayoutServerLoad = (async ({ cookies }) => {
 		await cookiesHelper.refreshCookies(cookies);
 		sendIsLoggedToFront = true;
 	} catch {
-		sendIsLoggedToFront = true;
+		sendIsLoggedToFront = false;
 		// sendIsLoggedToFront = false;
 	}
 	return {
