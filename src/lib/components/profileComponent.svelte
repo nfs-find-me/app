@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { User } from "../../model/user/User";
+	import CreateContentComponent from "./createContentComponent.svelte";
 
     let onglet: string = 'content';
     export let user:User;
@@ -43,7 +44,7 @@
 {#if onglet == "content"}
     <p>Contenu !</p>
 {:else if onglet == "createContent"}
-    <p>Créer !</p>
+    <CreateContentComponent></CreateContentComponent>
 {/if}
 
 </section>

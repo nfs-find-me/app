@@ -7,7 +7,6 @@
 	export let showAnswer: boolean;
 	function handleDrag(e: any) {
 		markerCoords = e.detail.lngLat;
-		console.log('drag', e.detail.lngLat);
 	}
 </script>
 
