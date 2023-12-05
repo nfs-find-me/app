@@ -54,8 +54,8 @@
 <div class="mx-auto flex flex-col items-center justify-center gap-5 p-8">
     <h2 class="text-lg text-blue font-bold">Ajouter un contenu</h2>
 
-    <form method="POST" class="w-full mx-auto">
-        <div class="mx-auto flex flex-row items-center justify-center gap-5 border-solid p-4">
+    <form method="POST" class="w-full flex flex-col items-center justify-center">
+        <div class="flex flex-row items-center justify-center gap-5 border-solid p-4">
             {#if selectedFile}
             <div class="text-center">
                 <img src={selectedFile.imageUrl} alt="Image Preview" class="rounded-lg w-40 h-24 border-2 border-sky-500" />
@@ -63,7 +63,7 @@
             {/if}
             <input type="file" id="fileInput" name="fileToUpload" on:change={handleFileChange} />
             {#if selectedFile}
-                <input type="text" name="blobFile" value={selectedFile.imageUrl} readonly />
+                <input type="text" name="blobFile" value={selectedFile.imageUrl} readonly style="display: none;" />
             {/if}
         </div>
 
