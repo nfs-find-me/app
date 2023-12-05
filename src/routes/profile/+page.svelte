@@ -6,6 +6,7 @@
     export let data: PageData;
     const user:User = data.user;
 
+console.log(user)
 </script>
 
 <ProfileComponent {user} />
