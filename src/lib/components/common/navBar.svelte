@@ -27,7 +27,7 @@
 			<a href="/parameters"
 				><i class="fa-solid fa-gear text-40 hover:cursor-pointer hover:text-blue" /></a
 			>
-			<a href="/profile"
+			<a href="/profile/content"
 				><img
 					class="w-16 h-16 rounded-50 hover:cursor-pointer"
 					src="profil_picture.jpg"
