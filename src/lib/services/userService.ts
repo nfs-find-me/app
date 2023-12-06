@@ -34,4 +34,12 @@ export class UserService {
 			return { errorMessage: 'Vous devez être connecté.' };
 		}
 	}
+
+	public async banUser(userId: string) {
+		const api = new UserRestApi(this.cookies);
+		const cookiesHelper = new CookiesHelper(this.cookies);
+
+		const res = await api.banUser(userId);
+		return { res: res.data };
+	}
 }
