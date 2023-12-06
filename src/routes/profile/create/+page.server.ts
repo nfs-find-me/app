@@ -25,7 +25,7 @@ export const actions: Actions = {
 		data.userId = userId;
 		data.geolocation.address = formData.get('address') as string;
 		data.geolocation.zip = Number(formData.get('zip') as string);
-		data.geolocation.country = "France";
+		data.geolocation.country = 'France';
 		data.geolocation.city = formData.get('city') as string;
 
 		const dataStringify = JSON.stringify(data);
@@ -49,4 +49,3 @@ export const actions: Actions = {
 		}
 	}
 };
-}
