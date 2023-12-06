@@ -1,7 +1,7 @@
-import { UserRestApi } from '../api/feature/User.restAPI';
-import { CookiesHelper } from '../helpers/cookies/cookies.helper';
+import { UserRestApi } from '../../api/feature/User.restAPI';
+import { CookiesHelper } from '../../helpers/cookies/cookies.helper';
 import type { PageServerLoad } from './$types';
-import { PostRestApi } from '../api/feature/Post.restAPI';
+import { PostRestApi } from '../../api/feature/Post.restAPI';
 
 export const load: PageServerLoad = (async ({ cookies }) => {
 	const userRestApi = new UserRestApi(cookies);

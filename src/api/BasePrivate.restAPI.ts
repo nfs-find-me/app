@@ -19,6 +19,29 @@ export abstract class BasePrivateRestApi extends BaseRestApi {
 		}
 	}
 
+
+	protected async requestFormData<T>(formData: FormData): Promise<T | Error> {
+        const response = await fetch(this.server + this.feature, {
+            method: 'POST',
+            headers: this.headerFormHeader,
+            body: formData
+        });
+        // @ts-ignore
+        if (!formData.file) {
+            throw new Error('Please provide a image');
+        }
+        // @ts-ignore
+        if (formData.data instanceof T === false) {
+            throw new Error('Invalid data received');
+        }
+        if (response.status === 201 || response.status === 200) {
+            return await response.json();
+        } else {
+            throw new Error(response.statusText);
+        }
+    }
+
+
 	protected async request<T>(options: {
 		method: string;
 		url?: string;
@@ -51,16 +74,7 @@ export abstract class BasePrivateRestApi extends BaseRestApi {
 			headers: this.headerFormData,
 			body: formData
 		});
-		console.log({ formData, response, header: this.headerFormData });
 
-		// @ts-ignore
-		// if (!formData.file) {
-		// 	throw new Error('Please provide a image');
-		// }
-		// @ts-ignore
-		// if (formData.data instanceof T === false) {
-		// 	throw new Error('Invalid data received');
-		// }
 		if (response.status === 201 || response.status === 200) {
 			return await response.json();
 		} else {

@@ -4,7 +4,7 @@ export class Post {
 	updatedAt?: Date;
 
 	userId?: string;
-	picture?: string;
+	picture?: Picture;
 	description?: string;
 	geolocation: PostGeolocation;
 	view?: PostView[];
@@ -38,4 +38,9 @@ export interface PostView {
 export interface PostLike {
 	userId: string;
 	createdAt: Date;
+}
+
+export interface Picture {
+	thumbnail_url: string;
+	url: string;
 }
