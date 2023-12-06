@@ -7,7 +7,13 @@ export class CookiesHelper {
 	constructor(cookies: Cookies) {
 		this.cookies = cookies;
 	}
-	public setAuthCookies(login: string, userId:string, jwt: string, refreshToken: string, expireTime: number) {
+	public setAuthCookies(
+		login: string,
+		userId: string,
+		jwt: string,
+		refreshToken: string,
+		expireTime: number
+	) {
 		this.cookies.set('login', login, {
 			httpOnly: true,
 			sameSite: 'strict',
@@ -38,20 +44,29 @@ export class CookiesHelper {
 		});
 	}
 
+	public async logout() {
+		console.log('logout cookies');
+		try {
+			this.cookies.delete('jwt', { path: '/' });
+			this.cookies.delete('refresh', { path: '/' });
+			console.log(this.cookies.get('refresh'));
+		} catch (e) {
+			console.error('pb lors de suppression');
+		}
+	}
+
 	public setTokenCookies(jwt: string, refreshToken: string, expireTime: number) {
 		this.cookies.set('jwt', jwt, {
 			httpOnly: true,
 			sameSite: 'lax',
 			secure: false,
-			path: '/',
-			maxAge: expireTime
+			path: '/'
 		});
 		this.cookies.set('refresh', refreshToken, {
 			httpOnly: true,
 			sameSite: 'lax',
 			secure: false,
-			path: '/',
-			maxAge: expireTime
+			path: '/'
 		});
 	}
 
@@ -70,8 +85,7 @@ export class CookiesHelper {
 		cookiesHelper.setTokenCookies(tokens.jwtToken, tokens.refreshToken, expireTime);
 	}
 
-	public getUserId(cookies: Cookies){
+	public getUserId(cookies: Cookies) {
 		return cookies.get('userId');
 	}
-
 }

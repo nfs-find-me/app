@@ -1,7 +1,7 @@
 import type { Cookies } from '@sveltejs/kit';
 import { UserRestApi } from '../../api/feature/User.restAPI';
-import { CookiesHelper } from '../../helpers/cookies/cookies.helper';
 import { PostRestApi } from '../../api/feature/Post.restAPI';
+import { CookiesHelper } from '../../helpers/cookies/cookies.helper';
 
 export class PostService {
 	private cookies: Cookies;
@@ -33,8 +33,8 @@ export class PostService {
 		const userId = cookiesHelper.getUserId(this.cookies);
 
 		if (userId) {
-			const users = await api.getAll();
-			return { users: users.data };
+			const posts = await api.getAll();
+			return { posts: posts.data };
 		} else {
 			return { errorMessage: 'Vous devez être connecté.' };
 		}

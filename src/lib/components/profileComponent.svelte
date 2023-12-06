@@ -14,7 +14,12 @@
 
 <section>
     <div class="w-full flex flex-col justify-center items-center gap-6 my-10">
-        <img class="w-40 h-40 rounded-full hover:cursor-pointer" src="profil_picture.jpg" alt="image de profil">
+
+        {#if (user.avatar != null)}
+            <img class="w-40 h-40 rounded-full hover:cursor-pointer" src={user.avatar} alt="image de profil">
+        {:else}
+            <img class="w-40 h-40 rounded-full hover:cursor-pointer" src="user_default.webp" alt="image de profil">
+        {/if}
 
         <div class="flex flex-col items-center">
             <h2 class="font-bold text-xxl">{user.username}</h2>

@@ -13,6 +13,16 @@ export class PostRestApi extends BasePrivateRestApi {
 			method: HTTP.GET,
 			url: id
 		});
+		if (response instanceof Response) {
+			return response.json();
+		}
+		throw response as Error;
+	}
+
+	public async getAll() {
+		const response: Response | Error = await this.request({
+			method: HTTP.GET
+		});
 
 		if (response instanceof Response) {
 			return response.json();
