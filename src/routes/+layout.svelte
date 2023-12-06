@@ -17,7 +17,7 @@
 	import { isLoggingOutReset, isLoggingOutStore } from '../store/isLoogingOut';
 	let isLogged: boolean;
 	let isLoggingOut: boolean;
-	let userPicture: String;
+	let userPicture: string;
 	import type { User } from '../model/user/User';
 	export let data: LayoutData;
     const user: User = data.user;
@@ -36,11 +36,11 @@
 	}
 
 	const canLogout = () => {
-		if(isLogged && user.avatar != null){
-			userPicture = user.avatar;
-		}else{
-			userPicture = "/user_default.webp";
-		}
+		// if(isLogged && user.avatar != null){
+		// 	userPicture = user.avatar;
+		// }else{
+		// 	userPicture = "/user_default.webp";
+		// }
 		return isLogged && browser && isLoggingOut;
 	};
 	

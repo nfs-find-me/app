@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { currentPage, handlePageClick } from '../../store/pathStore';
-	import SearchComponent from './searchComponent.svelte';
 	import type { PostType } from '../../store/types';
 
 	export let postImage: PostType[];

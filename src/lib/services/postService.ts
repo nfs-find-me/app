@@ -21,4 +21,17 @@ export class PostService {
 			return { errorMessage: 'Vous devez être connecté.' };
 		}
 	}
+
+	public async getByCurrentUser() {
+		const api = new PostRestApi(this.cookies);
+		const cookiesHelper = new CookiesHelper(this.cookies);
+		const userId = cookiesHelper.getUserId(this.cookies);
+
+		if (userId) {
+			const posts = await api.getByCurrentUser(userId);
+			return { posts: posts.data };
+		} else {
+			return { errorMessage: 'Vous devez être connecté.' };
+		}
+	}
 }
