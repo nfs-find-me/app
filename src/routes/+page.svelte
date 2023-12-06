@@ -7,7 +7,6 @@
 	const subscribe = isLoggedStore.subscribe((v) => (isLogged = v));
 
 	export let data: PageData;
-	console.log('route data', data);
 </script>
 
 <HomeComponent {data} {isLogged} />
