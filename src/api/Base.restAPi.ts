@@ -23,4 +23,5 @@ export abstract class BaseRestApi {
 				throw new Error(`Feature ${feature} is not supported`);
 		}
 	}
+	
 }
