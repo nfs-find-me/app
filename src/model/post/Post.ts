@@ -6,19 +6,28 @@ export class Post {
 	userId?: string;
 	picture?: Picture;
 	description?: string;
-	geolocation?: PostGeolocation;
+	geolocation: PostGeolocation;
 	view?: PostView[];
 	like?: PostLike[];
 	verified: boolean = false;
+
+	constructor() {
+		this.geolocation = new PostGeolocation();
+	}
 }
 
-export interface PostGeolocation {
+export class PostGeolocation {
 	posX: number;
 	posY: number;
 	zip?: number;
 	city?: string;
 	country?: string;
 	address?: string;
+
+	constructor() {
+		this.posX = 0;
+        this.posY = 0;
+	}
 }
 
 export interface PostView {
