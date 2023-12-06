@@ -15,6 +15,7 @@
 	import { browser } from '$app/environment';
 	import { goto } from '$app/navigation';
 	import { isLoggingOutReset, isLoggingOutStore } from '../store/isLoogingOut';
+
 	let isLogged: boolean;
 	let isLoggingOut: boolean;
 	let userPicture: string;
