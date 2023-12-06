@@ -19,4 +19,10 @@ export class PostRestApi extends BasePrivateRestApi {
 		}
 		throw response as Error;
 	}
+
+	public async sendFormData(formData: FormData) {
+		console.log({ formData , type: typeof formData });
+		
+		const response: Response | Error = await this.requestFormData(formData);
+	}
 }

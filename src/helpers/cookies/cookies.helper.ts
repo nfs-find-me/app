@@ -71,6 +71,7 @@ export class CookiesHelper {
 	}
 
 	public async refreshCookies(cookies: Cookies) {
+		console.log('refresh cookies');
 		const login = cookies.get('login');
 		const refreshToken = cookies.get('refresh');
 		if (login === undefined || refreshToken === undefined) {
