@@ -1,8 +1,13 @@
 <script lang="ts">
 	import Button from './common/button.svelte';
 	import type { PostType } from '../../store/types';
-	export let welcomeImagesDisplay: PostType[];
 
+	let welcomeImagesDisplay = [
+		{path: "/image_1.webp", index: 1},
+		{path: "/image_2.jpg", index: 2},
+		{path: "/image_3.jpg", index: 3},
+		{path: "/image_4.webp", index: 4},
+	]
 	let scrollY: number;
 </script>
 
@@ -20,8 +25,8 @@
 			<img
 				class="w-233 h-326 desktop-xl-max:w-full desktop-xl-max:h-full desktop-xl:rounded-15
             {index % 2 === 0 ? 'slide-in-bottom-before' : 'slide-in-bottom-after desktop-xl:mt-20'}"
-				src={image.picture?.thumbnail_url && ''}
-				alt={image.picture?.thumbnail_url && ''}
+				src={image.path}
+				alt="Images de présentation"
 			/>
 		{/each}
 	</div>
