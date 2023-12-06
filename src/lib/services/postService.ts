@@ -42,15 +42,16 @@ export class PostService {
 
 	public async sendFormData(formData: FormData) {
 		const api = new PostRestApi(this.cookies);
-        const cookiesHelper = new CookiesHelper(this.cookies);
-        const userId = cookiesHelper.getUserId(this.cookies);
+		const cookiesHelper = new CookiesHelper(this.cookies);
+		const userId = cookiesHelper.getUserId(this.cookies);
 
-        if (userId) {
-            const post = await api.sendFormData(formData);
-            return { posts: post };
-        } else {
-            return { errorMessage: 'Vous devez être connecté.' };
-        }
+		if (userId) {
+			const post = await api.sendFormData(formData);
+			return { posts: post };
+		} else {
+			return { errorMessage: 'Vous devez être connecté.' };
+		}
+	}
 
 	public async getByCurrentUser() {
 		const api = new PostRestApi(this.cookies);
@@ -63,6 +64,5 @@ export class PostService {
 		} else {
 			return { errorMessage: 'Vous devez être connecté.' };
 		}
-
 	}
 }
