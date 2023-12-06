@@ -2,6 +2,7 @@
 	import Button from './button.svelte';
 
 	export let isLogged: Boolean;
+	export let userPicture: string;
 </script>
 
 <!-- Desktop Nav -->
@@ -27,13 +28,7 @@
 			<a href="/parameters"
 				><i class="fa-solid fa-gear text-40 hover:cursor-pointer hover:text-blue" /></a
 			>
-			<a href="/profile"
-				><img
-					class="w-16 h-16 rounded-50 hover:cursor-pointer"
-					src="profil_picture.jpg"
-					alt="image de profil"
-				/></a
-			>
+			<a href="/profile/content"><img class="w-16 h-16 rounded-50 hover:cursor-pointer" src="{userPicture}" alt="image de profil"/></a>
 		{:else}
 			<Button link={'login'} fill={true} text={'Se connecter'} />
 			<Button link={'register'} fill={false} text={"S'inscrire"} />

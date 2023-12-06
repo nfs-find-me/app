@@ -4,6 +4,10 @@
 
     export let user:User;
 
+    if(user.avatar == null){
+        user.avatar = "/user_default.webp";
+    }
+
 </script>
 
 <section id="accountInfo" class="flex flex-col w-full px-10 py-16 gap-14">
@@ -13,7 +17,7 @@
         <div class="flex flex-col gap-8 tablet-sm:gap-0 tablet-sm:flex-row items-center justify-between">
             <div>
                 <div class="flex flex-col tablet-sm:flex-row gap-8 items-center">
-                    <img class="w-20 h-20 rounded-50 hover:cursor-pointer" src="profil_picture.jpg" alt="image de profil">
+                    <img class="w-20 h-20 rounded-50 hover:cursor-pointer" src="{user.avatar}" alt="image de profil">
         
                     <div>
                         <p class="text-lg">Nom d'utilisateur : <span class="font-bold text-lg">{user.username}</span></p>

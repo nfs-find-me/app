@@ -25,7 +25,7 @@ export type UserType = {
 	score?: number;
 };
 export type PostType = {
-	_id: string;
+	id: string;
 	userId?: string;
 	description?: string;
 	user?: UserType;

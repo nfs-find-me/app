@@ -30,4 +30,16 @@ export class UserRestApi extends BasePrivateRestApi {
 		}
 		throw response as Error;
 	}
+
+	public async banUser(userId: string) {
+		const response: Response | Error = await this.request({
+			method: HTTP.POST,
+			url: 'ban/' + userId
+		});
+
+		if (response instanceof Response) {
+			return response.json();
+		}
+		throw response as Error;
+	}
 }
