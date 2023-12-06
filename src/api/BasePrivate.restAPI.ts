@@ -4,12 +4,17 @@ import type { FeatureEnum } from './feature.enum';
 import { HTTP } from '../enum/HTTP.enum';
 export abstract class BasePrivateRestApi extends BaseRestApi {
 	protected header?: Headers;
+	protected headerFormHeader?: Headers;
 
 	constructor(feature: FeatureEnum, cookies: Cookies) {
 		super(feature);
 		if (cookies.get('jwt')) {
 			this.header = new Headers({
 				'Content-Type': 'application/json',
+				Authorization: `Bearer ${cookies.get('jwt')}`
+			});
+			this.headerFormHeader = new Headers({
+				'Content-Type': 'multipart/form-data',
 				Authorization: `Bearer ${cookies.get('jwt')}`
 			});
 		}
@@ -45,6 +50,27 @@ export abstract class BasePrivateRestApi extends BaseRestApi {
 			return response;
 		} else {
 			throw new Error(await response.text());
+		}
+	}
+
+	protected async requestFormData<T>(formData: FormData): Promise<T | Error> {
+		const response = await fetch(this.server + this.feature, {
+			method: 'POST',
+			headers: this.headerFormHeader,
+			body: formData
+		});
+		// @ts-ignore
+		if (!formData.file) {
+			throw new Error('Please provide a image');
+		}
+		// @ts-ignore
+		if (formData.data instanceof T === false) {
+			throw new Error('Invalid data received');
+		}
+		if (response.status === 201 || response.status === 200) {
+			return await response.json();
+		} else {
+			throw new Error(response.statusText);
 		}
 	}
 

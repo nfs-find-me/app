@@ -9,5 +9,5 @@
 console.log(user)
 </script>
 
-<ProfileComponent {user} />
+
 
