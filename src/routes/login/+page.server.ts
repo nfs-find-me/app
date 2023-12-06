@@ -24,7 +24,7 @@ export const actions: Actions = {
 		}
 		user.username = data.get('usernameEmail') as string;
 		user.password = data.get('password') as string;
-		user.userId = data.get('userId') as string;
+		user.id = data.get('userId') as string;
 		let isValidForm: Boolean = true;
 		try {
 			const response = await api.login(user);
