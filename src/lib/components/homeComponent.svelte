@@ -13,7 +13,6 @@
 	const postImage = data.posts as PostType[];
 	console.log('posts', postImage);
 
-	// TODO: récupérer les posts findAll et supprimer image.ts
 	const welcomeImagesDisplay = welcomeImages;
 </script>
 
