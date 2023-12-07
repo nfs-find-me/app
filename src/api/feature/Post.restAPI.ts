@@ -55,4 +55,88 @@ export class PostRestApi extends BasePrivateRestApi {
 		}
 		throw response as Error;
 	}
+
+	public async searchPost(search: string) {
+		const response: Response | Error = await this.request({
+			method: HTTP.GET,
+			url: 'search/' + search
+		});
+
+		if (response instanceof Response) {
+			return response.json();
+		}
+		throw response as Error;
+	}
+
+	public async getMostRecentPost() {
+		const response: Response | Error = await this.request({
+			method: HTTP.GET,
+			url: 'filters/most-recent'
+		});
+
+		if (response instanceof Response) {
+			return response.json();
+		}
+		throw response as Error;
+	}
+
+	public async getOldestPost() {
+		const response: Response | Error = await this.request({
+			method: HTTP.GET,
+			url: 'filters/oldest'
+		});
+
+		if (response instanceof Response) {
+			return response.json();
+		}
+		throw response as Error;
+	}
+
+	public async getMostViewedPost() {
+		const response: Response | Error = await this.request({
+			method: HTTP.GET,
+			url: 'filters/most-viewed'
+		});
+
+		if (response instanceof Response) {
+			return response.json();
+		}
+		throw response as Error;
+	}
+
+	public async getMostLikedPost() {
+		const response: Response | Error = await this.request({
+			method: HTTP.GET,
+			url: 'filters/most-liked'
+		});
+
+		if (response instanceof Response) {
+			return response.json();
+		}
+		throw response as Error;
+	}
+
+	public async getMostPopularPost() {
+		const response: Response | Error = await this.request({
+			method: HTTP.GET,
+			url: 'filters/most-popular'
+		});
+
+		if (response instanceof Response) {
+			return response.json();
+		}
+		throw response as Error;
+	}
+
+	public async getFollowingPost(userId: string) {
+		const response: Response | Error = await this.request({
+			method: HTTP.GET,
+			url: 'filters/following/' + userId
+		});
+
+		if (response instanceof Response) {
+			return response.json();
+		}
+		throw response as Error;
+	}
 }
