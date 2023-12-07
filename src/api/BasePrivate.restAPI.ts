@@ -41,7 +41,6 @@ export abstract class BasePrivateRestApi extends BaseRestApi {
         }
     }
 
-
 	protected async request<T>(options: {
 		method: string;
 		url?: string;
@@ -68,17 +67,4 @@ export abstract class BasePrivateRestApi extends BaseRestApi {
 		}
 	}
 
-	protected async requestFormData<T>(formData: FormData): Promise<Response | Error> {
-		const response = await fetch(this.server + this.feature, {
-			method: 'POST',
-			headers: this.headerFormData,
-			body: formData
-		});
-
-		if (response.status === 201 || response.status === 200) {
-			return await response.json();
-		} else {
-			throw new Error(response.statusText);
-		}
-	}
 }

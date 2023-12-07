@@ -8,27 +8,29 @@
 <!-- Desktop Nav -->
 
 <nav class="tablet-max:hidden flex justify-between items-center p-4">
-	<a href="/" class="flex flex-row gap-2 items-center hover:cursor-pointer">
-		<img class="w-20" src="../favicon.svg" alt="logo" />
-		<h2 class="text-xxl font-bold text-blue">FindMe</h2>
-	</a>
+	<div class="w-1/3 flex justify-start">
+		<a href="/" class="flex flex-row gap-2 items-center hover:cursor-pointer">
+			<img class="w-20" src="../favicon.svg" alt="logo" />
+			<h2 class="text-xxl font-bold text-blue">FindMe</h2>
+		</a>
+	</div>
 
-	<ul class="flex gap-6 font-bold text-lg">
-		<li class="hover:cursor-pointer hover:text-blue"><a href="/">Accueil</a></li>
-		{#if isLogged}
-			<li class="hover:cursor-pointer hover:text-blue"><a href="/explore">Explorer</a></li>
-			<li class="hover:cursor-pointer hover:text-blue"><a href="/ranked">Classement</a></li>
-		{:else}
-			<li class="hover:cursor-pointer hover:text-blue">A propos</li>
-		{/if}
-	</ul>
+	<div class="w-1/3 flex justify-center">
+		<ul class="flex gap-6 font-bold text-lg">
+			<li class="hover:cursor-pointer hover:text-blue"><a href="/">Accueil</a></li>
+			{#if isLogged}
+				<li class="hover:cursor-pointer hover:text-blue"><a href="/explore">Explorer</a></li>
+				<li class="hover:cursor-pointer hover:text-blue"><a href="/profile/content">Profil</a></li>
+				<li class="hover:cursor-pointer hover:text-blue"><a href="/ranked">Classement</a></li>
+			{:else}
+				<li class="hover:cursor-pointer hover:text-blue">A propos</li>
+			{/if}
+		</ul>
+	</div>
 
-	<div class="flex gap-6 items-center">
+	<div class="flex gap-6 items-center justify-end w-1/3">
 		{#if isLogged}
-			<a href="/parameters"
-				><i class="fa-solid fa-gear text-40 hover:cursor-pointer hover:text-blue" /></a
-			>
-			<a href="/profile/content"><img class="w-16 h-16 rounded-50 hover:cursor-pointer" src="{userPicture}" alt="image de profil"/></a>
+			<a href="/parameters"><i class="fa-solid fa-gear text-40 hover:cursor-pointer hover:text-blue" /></a>
 		{:else}
 			<Button link={'login'} fill={true} text={'Se connecter'} />
 			<Button link={'register'} fill={false} text={"S'inscrire"} />
