@@ -9,9 +9,9 @@
 	}
 </script>
 
-<button on:click={handleClick}>
-	<span
-		class="py-2 px-4 border-2 w-32 rounded-50 border-blue text-center text-blue font-semibold hover:cursor-pointer"
-		>{text}</span
-	>
+<button
+	style="width: 100%;"
+	class="py-2 px-4 border-2 w-32 rounded-50 border-blue text-center text-blue font-semibold hover:cursor-pointer"
+	on:click={handleClick}
+>{text}
 </button>
