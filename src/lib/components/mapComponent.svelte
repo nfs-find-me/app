@@ -2,6 +2,7 @@
 	import { GeoJSON, Layer, LineLayer, MapLibre, Marker } from 'svelte-maplibre';
 	import type { LngLatLike, LngLatBoundsLike } from 'svelte-maplibre';
 	import type { PostType } from '../../store/types.js';
+	import { enhance } from '$app/forms';
 	export let post: PostType;
 	let markerCoords = [2.3502761752520267, 48.856836256240854] as LngLatLike;
 	export let showAnswer: boolean;
@@ -136,7 +137,7 @@
 		{/if}
 	</MapLibre>
 	{#if !showAnswer}
-		<form class="bg-white p-2 flex" method="post">
+		<form class="bg-white p-2 flex" method="post" use:enhance>
 			<input name="points" type="text" value={pointValue} />
 			<button
 				type="submit"
