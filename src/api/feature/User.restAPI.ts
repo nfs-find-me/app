@@ -42,4 +42,16 @@ export class UserRestApi extends BasePrivateRestApi {
 		}
 		throw response as Error;
 	}
+	public async addPoints(id: string, points: number) {
+		const response: Response | Error = await this.request({
+			method: HTTP.POST,
+			url: 'give_points/' + id,
+			data: { points }
+		});
+		if (response instanceof Response) {
+			console.log(response.json());
+			return response.json();
+		}
+		throw response as Error;
+	}
 }

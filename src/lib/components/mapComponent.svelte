@@ -4,6 +4,7 @@
 	import type { PostType } from '../store/types.js';
 	import type GeoJson from 'svelte-maplibre/dist/GeoJSON.svelte';
 	import type { Position } from 'postcss';
+	import { UserRestApi } from '../../api/feature/User.restAPI';
 	export let post: PostType;
 	let markerCoords = [2.3502761752520267, 48.856836256240854] as LngLatLike;
 	export let showAnswer: boolean;
@@ -11,15 +12,62 @@
 		markerCoords = e.detail.lngLat;
 	}
 	function getLine() {
+		const markerCoordsArray = markerCoords as Array<number>;
+		console.log(markerCoordsArray);
 		const geoJsonFeature: GeoJSON.Feature = {
 			type: 'Feature',
 			geometry: {
 				type: 'LineString',
-				coordinates: [markerCoords, [post.geolocation?.posX, post.geolocation?.posY]]
+				coordinates: [markerCoordsArray, [post.geolocation?.posX, post.geolocation?.posY]]
 			},
 			properties: {}
 		};
 		return geoJsonFeature;
+	}
+	function degreesToRadians(degrees: number) {
+		return (degrees * Math.PI) / 180;
+	}
+
+	function distanceInKmBetweenEarthCoordinates(
+		lat1: number,
+		lon1: number,
+		lat2: number,
+		lon2: number
+	) {
+		const earthRadiusKm = 6371;
+
+		const dLat = degreesToRadians(lat2 - lat1);
+		const dLon = degreesToRadians(lon2 - lon1);
+
+		lat1 = degreesToRadians(lat1);
+		lat2 = degreesToRadians(lat2);
+
+		const a =
+			Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+			Math.sin(dLon / 2) * Math.sin(dLon / 2) * Math.cos(lat1) * Math.cos(lat2);
+		const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+		return earthRadiusKm * c;
+	}
+	function handleSubmit() {
+		const markerCoordsArray = markerCoords as Array<number>;
+		showAnswer = true;
+		console.log(showAnswer);
+		const distance = distanceInKmBetweenEarthCoordinates(
+			markerCoordsArray[0],
+			markerCoordsArray[1],
+			post.geolocation?.posY,
+			post.geolocation?.posX
+		);
+		const maxPoints = 2000;
+		let points;
+		Math.round(maxPoints - distance) <= 0
+			? (points = 0)
+			: (points = Math.round(maxPoints - distance));
+		console.log('distance (km) : ', distance);
+		console.log('points : ', points);
+		console.log('give points...');
+		// const userRestApi = new UserRestApi(cookies);
+		// userRestApi.addPoints(l);
 	}
 </script>
 
@@ -39,7 +87,7 @@
 	>
 		<Marker
 			lngLat={markerCoords}
-			draggable
+			draggable={!showAnswer}
 			on:drag={(e) => {
 				console.log('drag', e.detail.lngLat);
 				handleDrag(e);
@@ -73,8 +121,7 @@
 			<button
 				class="border-2 px-4 py-1 mx-auto rounded-lg font-bold"
 				on:click={() => {
-					showAnswer = true;
-					console.log(showAnswer);
+					handleSubmit();
 				}}>deviner</button
 			>
 		</div>

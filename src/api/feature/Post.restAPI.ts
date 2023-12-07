@@ -31,15 +31,14 @@ export class PostRestApi extends BasePrivateRestApi {
 		throw response as Error;
 	}
 
-
 	public async sendFormData(formData: FormData) {
 		const response: Response | Error = await this.requestFormData(formData);
-  }
+	}
 
 	public async getByCurrentUser(id: string) {
 		const response: Response | Error = await this.request({
 			method: HTTP.GET,
-			url: "user/" + id
+			url: 'user/' + id
 		});
 
 		if (response instanceof Response) {
@@ -48,7 +47,7 @@ export class PostRestApi extends BasePrivateRestApi {
 		throw response as Error;
 	}
 
-	public async create(formData : FormData) {
+	public async create(formData: FormData) {
 		const response: Response | Error = await this.requestFormData(formData);
 
 		if (response instanceof Response) {
