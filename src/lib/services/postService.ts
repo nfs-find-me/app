@@ -65,4 +65,17 @@ export class PostService {
 			return { errorMessage: 'Vous devez être connecté.' };
 		}
 	}
+
+	public async searchPost(search: string) {
+		const api = new PostRestApi(this.cookies);
+		const cookiesHelper = new CookiesHelper(this.cookies);
+		const userId = cookiesHelper.getUserId(this.cookies);
+
+		if (userId) {
+			const posts = await api.searchPost(search);
+			return { posts: posts.data };
+		} else {
+			return { errorMessage: 'Vous devez être connecté.' };
+		}
+	}
 }
