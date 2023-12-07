@@ -21,7 +21,9 @@
 		<label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only"
 			>Rechercher ...</label
 		>
-		<div class="relative block w-full p-4 pl-14 text-md rounded-50 border-2 border-blue">
+		<div
+			class="relative block w-full p-4 pl-14 text-md rounded-50 border-2 border-blue flex justify-between"
+		>
 			<div class="absolute inset-y-0 left-0 flex items-center pl-3">
 				<i class="fa-solid fa-magnifying-glass text-xl" />
 			</div>
