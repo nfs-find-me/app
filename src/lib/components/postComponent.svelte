@@ -35,12 +35,16 @@
 			</div>
 			<button
 				style:bottom={showInfo ? infoBoxHeight + 'px' : '12px'}
-				class={'absolute z-9 transition-all text-white left-4'}
+				class={'absolute z-9 transition-all text-white left-4' +
+					(showAnswer ? ' bg-blue rounded-full p-3' : '')}
 				on:click={() => (showInfo = !showInfo)}
 				><i class="fa-solid fa-eye fa-2xl shadow-md" /></button
 			>
-			<a href="/" class="absolute z-9 transition-all text-white left-4 top-6"
-				><i class="fa-solid fa-2xl fa-arrow-left" /></a
+			<a
+				href="/"
+				class={'absolute z-9 transition-all text-white left-4 top-6' +
+					(showAnswer ? ' bg-blue rounded-full p-3' : '')}
+				><i class="fa-solid fa-2xl fa-arrow-left z-9" /></a
 			>
 			<div
 				bind:this={infoBox}
@@ -48,7 +52,7 @@
 				class={'absolute p-4 z-9 w-full transition-all bg-gradient-to-t from-black to-transparent text-white left-0' +
 					(showInfo ? ' bottom-0' : ' top-full')}
 			>
-				<p class="pb-1">{post.description}</p>
+				<p class="pb-1 z-9">{post.description}</p>
 				<p class="text-sm font-bold">
 					Par @{post.user?.username}, le {new Date(post.createdAt).toLocaleDateString()}
 				</p>

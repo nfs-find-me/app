@@ -35,5 +35,5 @@ export type PostType = {
 	createdAt: Date;
 	updatedAt: Date;
 	picture?: PictureType;
-	geolocation?: GeolocType;
+	geolocation: GeolocType;
 };
