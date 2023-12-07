@@ -2,7 +2,6 @@
 	import { GeoJSON, Layer, LineLayer, MapLibre, Marker } from 'svelte-maplibre';
 	import type { LngLatLike } from 'svelte-maplibre';
 	import type { PostType } from '../../store/types.js';
-	import { actions } from '../../routes/post/[id]/+page.server';
 	export let post: PostType;
 	let markerCoords = [2.3502761752520267, 48.856836256240854] as LngLatLike;
 	export let showAnswer: boolean;
