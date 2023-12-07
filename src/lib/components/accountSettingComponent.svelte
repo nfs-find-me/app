@@ -27,7 +27,7 @@
             </div>
             
             <div>
-                <Button link={'login'} fill={true} text={'Modifier'} />
+                <Button link={'parameters/update'} fill={true} text={'Modifier'} />
             </div>
         </div>
     </div>
