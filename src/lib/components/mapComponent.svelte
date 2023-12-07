@@ -2,11 +2,35 @@
 	import { GeoJSON, Layer, LineLayer, MapLibre, Marker } from 'svelte-maplibre';
 	import type { LngLatLike } from 'svelte-maplibre';
 	import type { PostType } from '../../store/types.js';
+	import { actions } from '../../routes/post/[id]/+page.server';
 	export let post: PostType;
 	let markerCoords = [2.3502761752520267, 48.856836256240854] as LngLatLike;
 	export let showAnswer: boolean;
 	function handleDrag(e: any) {
 		markerCoords = e.detail.lngLat;
+	}
+
+	function getLine() {
+		const markerCoordsArray = markerCoords as Array<number>;
+		console.log(markerCoordsArray);
+		const geoJsonFeature: GeoJSON.Feature = {
+			type: 'Feature',
+			geometry: {
+				type: 'LineString',
+				coordinates: [
+					markerCoordsArray,
+					[post.geolocation?.posX as number, post.geolocation?.posY as number]
+				]
+			},
+			properties: {}
+		};
+		distanceInKmBetweenEarthCoordinates(
+			markerCoordsArray[1],
+			markerCoordsArray[0],
+			post.geolocation?.posY as number,
+			post.geolocation?.posX as number
+		);
+		return geoJsonFeature;
 	}
 	function degreesToRadians(degrees: number) {
 		return (degrees * Math.PI) / 180;
@@ -32,24 +56,31 @@
 		const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 		return earthRadiusKm * c;
 	}
-
-	function getLine() {
-		const geoJsonFeature: GeoJSON.Feature = {
-			type: 'Feature',
-			geometry: {
-				type: 'LineString',
-				coordinates: [markerCoords, [post.geolocation?.posX, post.geolocation?.posY]]
-			},
-			properties: {}
-		};
-		distanceInKmBetweenEarthCoordinates(
-			markerCoords[1],
-			markerCoords[0],
+	let pointValue: number;
+	function handleSubmit() {
+		const markerCoordsArray = markerCoords as Array<number>;
+		showAnswer = true;
+		console.log(showAnswer);
+		const distance = distanceInKmBetweenEarthCoordinates(
+			markerCoordsArray[0],
+			markerCoordsArray[1],
 			post.geolocation?.posY as number,
 			post.geolocation?.posX as number
 		);
-		return geoJsonFeature;
+		const maxPoints = 2000;
+		let points;
+		Math.round(maxPoints - distance) <= 0
+			? (points = 0)
+			: (points = Math.round(maxPoints - distance));
+		console.log('distance (km) : ', distance);
+		console.log('points : ', points);
+		console.log('give points...');
+		pointValue = points;
+		// const userRestApi = new UserRestApi(cookies);
+		// userRestApi.addPoints(l);
 	}
+
+	$: showAnswer, showAnswer ? handleSubmit() : null;
 </script>
 
 <div
@@ -68,7 +99,7 @@
 	>
 		<Marker
 			lngLat={markerCoords}
-			draggable
+			draggable={!showAnswer}
 			on:drag={(e) => {
 				console.log('drag', e.detail.lngLat);
 				handleDrag(e);
@@ -98,14 +129,15 @@
 		{/if}
 	</MapLibre>
 	{#if !showAnswer}
-		<div class="bg-white p-2 flex">
+		<form class="bg-white p-2 flex" method="post">
+			<input name="points" type="text" value={pointValue} />
 			<button
+				type="submit"
 				class="border-2 px-4 py-1 mx-auto rounded-lg font-bold"
 				on:click={() => {
 					showAnswer = true;
-					console.log(showAnswer);
 				}}>deviner</button
 			>
-		</div>
+		</form>
 	{/if}
 </div>

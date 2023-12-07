@@ -23,7 +23,7 @@
 				<li class="hover:cursor-pointer hover:text-blue"><a href="/profile/content">Profil</a></li>
 				<li class="hover:cursor-pointer hover:text-blue"><a href="/ranked">Classement</a></li>
 			{:else}
-				<li class="hover:cursor-pointer hover:text-blue">A propos</li>
+				<li class="hover:cursor-pointer hover:text-blue"><a href="/about">A propos</a></li>
 			{/if}
 		</ul>
 	</div>

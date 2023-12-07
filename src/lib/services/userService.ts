@@ -1,6 +1,7 @@
 import type { Cookies } from '@sveltejs/kit';
 import { UserRestApi } from '../../api/feature/User.restAPI';
 import { CookiesHelper } from '../../helpers/cookies/cookies.helper';
+import { PostRestApi } from '../../api/feature/Post.restAPI';
 
 export class UserService {
 	private cookies: Cookies;
@@ -41,5 +42,18 @@ export class UserService {
 
 		const res = await api.banUser(userId);
 		return { res: res.data };
+	}
+
+	public async addPoints(points: number) {
+		const api = new UserRestApi(this.cookies);
+		const cookiesHelper = new CookiesHelper(this.cookies);
+		const userId = cookiesHelper.getUserId(this.cookies);
+		if (!userId) return;
+		try {
+			const response = await api.addPoints(userId, points);
+			console.log(response);
+		} catch (e) {
+			console.log(e);
+		}
 	}
 }
