@@ -9,10 +9,10 @@
 
 </script>
 
-<section class="flex flex-wrap justify-between mx-auto gap-4 w-full p-10">
+<section class="grid grid-cols-1 md:grid-cols-5 gap-4 mx-auto p-10">
     {#each postDatas as post}
-    <a href="{'/post/' + post.id}" class="w-full md:w-1/5 cursor-pointer transition duration-300 ease-in-out hover:scale-110">
-        <img src="{post.picture?.url}" alt="Contenu utilisateur" >
+    <a href="{'/post/' + post.id}" class="w-full cursor-pointer transition duration-300 ease-in-out hover:scale-110">
+        <img src="{post.picture?.url}" alt="Contenu utilisateur">
     </a>
     {/each}
-</section>  
+</section>

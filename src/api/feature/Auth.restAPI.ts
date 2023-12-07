@@ -51,7 +51,6 @@ export class AuthRestApi extends BasePublicRestApi {
 			data
 		});
 		if (response instanceof Response) {
-			console.log('response json : ', response);
 			return response.json();
 		}
 		console.error('error json : ', response);
