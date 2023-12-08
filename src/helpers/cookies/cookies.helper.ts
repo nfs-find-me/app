@@ -83,7 +83,7 @@ export class CookiesHelper {
 		const tokens = response.data;
 		const expireTime = response.exp;
 		const cookiesHelper = new CookiesHelper(cookies);
-		cookiesHelper.setTokenCookies(tokens.jwtToken, tokens.refreshToken, expireTime);
+		cookiesHelper.setTokenCookies(tokens.jwtToken, tokens.refreshToken);
 	}
 
 	public getUserId(cookies: Cookies) {
