@@ -51,9 +51,9 @@ export class UserService {
 		if (!userId) return;
 		try {
 			const response = await api.addPoints(userId, points);
-			console.log(response);
+			console.log('response service', response);
 		} catch (e) {
-			console.log(e);
+			console.log('error service', e);
 		}
 	}
 }

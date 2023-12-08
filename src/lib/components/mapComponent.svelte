@@ -12,7 +12,6 @@
 		[12.1532244672579, 51.38478063560865] // Coin supérieur droit de la France
 	];
 
-
 	function handleDrag(e: any) {
 		markerCoords = e.detail.lngLat;
 	}
@@ -99,11 +98,8 @@
 		center={markerCoords}
 		zoom={3}
 		class="w-full h-full rounded-sm relative"
-		style={'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json'}
+		style={'https://api.maptiler.com/maps/streets/style.json?key=get_your_own_OpIi9ZULNHzrESv6T2vL'}
 		maxBounds={franceBounds}
-		on:load={() => {
-			post;
-		}}
 	>
 		<FullscreenControl position="top-right" />
 		{#if showAnswer === true}
@@ -122,7 +118,7 @@
 				console.log('drag', e.detail.lngLat);
 				handleDrag(e);
 			}}
-			class="w-10 h-10 transition-all bg-red-300 text-black rounded-full grid place-items-center"
+			class="w-10 h-10 transition-all text-black rounded-full grid place-items-center"
 		>
 			<img src="/favicon.svg" class="h-10" alt="marker" />
 		</Marker>
@@ -141,7 +137,7 @@
 			<Marker
 				offset={[0, -16]}
 				lngLat={[post.geolocation?.posX, post.geolocation?.posY]}
-				class="w-8 h-8 bg-red-300 text-black rounded-full grid place-items-center relative"
+				class="w-10 h-10 text-black rounded-full grid place-items-center relative"
 			>
 				<span
 					class="text-lg bg-blue bg-opacity-50 rounded-sm py-1 px-2 font-semibold absolute bottom-full"
@@ -149,7 +145,7 @@
 					Réponse
 				</span>
 
-				<img src="/favicon.svg" class="h-8" alt="marker" />
+				<img src="/favicon.svg" class="h-10" alt="marker" />
 			</Marker>
 		{/if}
 	</MapLibre>
