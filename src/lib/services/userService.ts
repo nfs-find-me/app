@@ -56,4 +56,17 @@ export class UserService {
 			console.log('error service', e);
 		}
 	}
+
+	public async getAllRanks() {
+		const api = new UserRestApi(this.cookies);
+		const cookiesHelper = new CookiesHelper(this.cookies);
+		const userId = cookiesHelper.getUserId(this.cookies);
+
+		if (userId) {
+			const users = await api.getAllRanks();
+			return { users: users.data };
+		} else {
+			return { errorMessage: 'Vous devez être connecté.' };
+		}
+	}
 }

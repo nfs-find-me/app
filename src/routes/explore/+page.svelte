@@ -15,7 +15,6 @@
 		{ id: 'most-viewed', text: 'Plus vues', fill: false },
 		{ id: 'most-liked', text: 'Plus likés', fill: false },
 		{ id: 'most-popular', text: 'Populaires', fill: false }
-		// { id: 'following', text: 'Abonnements' }
 	];
 	$: _valueInput = 'Plus récents';
 	$: _currentIndex = -1;
@@ -59,36 +58,8 @@
 	}
 
 	let searchTerm = '';
-	// function handleSubmit() {
-	// 	console.log('searchTerm', searchTerm);
-	// 	goto(`/explore?search=${searchTerm}`);
-	// }
 </script>
 
-<div class="m-auto w-11/12 tablet:w-1/3 mt-6">
-	<!-- <form method="post" on:submit|preventDefault={handleSubmit}> -->
-	<form>
-		<label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only"
-			>Rechercher ...</label
-		>
-		<div
-			class="relative block w-full p-4 pl-14 text-md rounded-50 border-2 border-blue flex justify-between"
-		>
-			<div class="absolute inset-y-0 left-0 flex items-center pl-3">
-				<i class="fa-solid fa-magnifying-glass text-xl" />
-			</div>
-			<input
-				type="search"
-				name="search"
-				bind:value={searchTerm}
-				placeholder="Rechercher par utilisateur"
-			/>
-			<button type="submit">Envoyer</button>
-		</div>
-	</form>
-</div>
-
-<!-- <SearchComponent /> -->
 <div
 	class="flex justify-center items-center flex-row m-auto py-8 px-8 w-11/12 gap-8 overflow-auto laptop:w-2/3"
 >
