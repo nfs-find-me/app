@@ -10,7 +10,7 @@ export const load: PageServerLoad = (async ({ params, cookies }) => {
 	const postService = new PostService(cookies);
 	try {
 		const post = await postService.getOne(id);
-		console.log('post front : ', post);
+		// console.log('post front : ', post);
 		return {
 			postId: id,
 			post: post

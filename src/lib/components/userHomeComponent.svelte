@@ -2,7 +2,7 @@
 	import type { PostType } from '../../store/types';
 
 	export let posts: PostType[];
-	console.log('postImage', posts);
+	// console.log('postImage', posts);
 </script>
 
 <section>

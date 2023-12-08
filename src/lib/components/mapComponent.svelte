@@ -1,11 +1,18 @@
 <script lang="ts">
-	import { FullscreenControl, GeoJSON, LineLayer, MapLibre, Marker } from 'svelte-maplibre';
-	import type { LngLatLike } from 'svelte-maplibre';
+	import { GeoJSON, Layer, LineLayer, MapLibre, Marker } from 'svelte-maplibre';
+	import type { LngLatLike, LngLatBoundsLike } from 'svelte-maplibre';
 	import type { PostType } from '../../store/types.js';
 	import { enhance } from '$app/forms';
 	export let post: PostType;
 	let markerCoords = [2.3502761752520267, 48.856836256240854] as LngLatLike;
 	export let showAnswer: boolean;
+
+	let franceBounds: LngLatBoundsLike = [
+		[-6.352731824594258, 42.53157074703472], // Coin inférieur gauche de la France
+		[12.1532244672579, 51.38478063560865] // Coin supérieur droit de la France
+	];
+
+
 	function handleDrag(e: any) {
 		markerCoords = e.detail.lngLat;
 	}
@@ -93,6 +100,8 @@
 		zoom={3}
 		class="w-full h-full rounded-sm relative"
 		style={'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json'}
+    style={'https://api.maptiler.com/maps/streets/style.json?key=get_your_own_OpIi9ZULNHzrESv6T2vL'}
+		maxBounds={franceBounds}
 		on:load={() => {
 			post;
 		}}
@@ -116,7 +125,7 @@
 			}}
 			class="w-10 h-10 transition-all bg-red-300 text-black rounded-full grid place-items-center"
 		>
-			<img src="../favicon.svg" class="h-10" alt="marker" />
+			<img src="/favicon.svg" class="h-10" alt="marker" />
 		</Marker>
 		{#if showAnswer === true}
 			<GeoJSON id="test" data={getLine()}
@@ -141,7 +150,7 @@
 					Réponse
 				</span>
 
-				<img src="../favicon.svg" class="h-8" alt="marker" />
+				<img src="/favicon.svg" class="h-8" alt="marker" />
 			</Marker>
 		{/if}
 	</MapLibre>
