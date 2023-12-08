@@ -3,7 +3,7 @@
 	import type { LngLatLike, LngLatBoundsLike } from 'svelte-maplibre';
 	import type { PostType } from '../../store/types.js';
 	import { enhance } from '$app/forms';
-	import { distanceInKmBetweenEarthCoordinates } from '../../helpers/distanceHelper';
+	import { distanceInKmBetweenEarthCoordinates, maxPoints } from '../../helpers/distanceHelper';
 	export let post: PostType;
 	let markerCoords = [2.3502761752520267, 48.856836256240854] as LngLatLike;
 	export let showAnswer: boolean;
@@ -55,7 +55,6 @@
 			post.geolocation?.posY as number,
 			post.geolocation?.posX as number
 		);
-		const maxPoints = 750;
 		let points;
 		Math.round(maxPoints - distance) <= 0
 			? (points = 0)

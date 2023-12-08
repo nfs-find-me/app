@@ -3,7 +3,7 @@ import { PostService } from '$lib/services/postService';
 import type { Actions } from '@sveltejs/kit';
 import { UserService } from '$lib/services/userService';
 import { number } from 'svelte-use-form';
-import { distanceInKmBetweenEarthCoordinates } from '../../../helpers/distanceHelper';
+import { distanceInKmBetweenEarthCoordinates, maxPoints } from '../../../helpers/distanceHelper';
 
 export const load: PageServerLoad = (async ({ params, cookies }) => {
 	console.log('param id : ', params.id);
@@ -37,7 +37,7 @@ export const actions: Actions = {
 		const lng2 = data.get('lng2')!.toString();
 		console.log('lat1, lng1, lat2, lng2', lat1, lng1, lat2, lng2);
 		let points = Math.round(
-			750 -
+			maxPoints -
 				distanceInKmBetweenEarthCoordinates(Number(lat1), Number(lng1), Number(lat2), Number(lng2))
 		);
 

@@ -1,3 +1,5 @@
+export const maxPoints = 750;
+
 export function degreesToRadians(degrees: number) {
 	return (degrees * Math.PI) / 180;
 }
