@@ -1,13 +1,9 @@
 <script lang="ts">
 	import type { PageData } from '../$types';
 	import UserHomeComponent from '$lib/components/userHomeComponent.svelte';
-	import SearchComponent from '$lib/components/searchComponent.svelte';
-	import { isLoggedStore } from '../../store/isLogged';
-	import { goto } from '$app/navigation';
 	import type { PostType } from '../../store/types';
 
 	let isLogged: boolean;
-	const subscribe = isLoggedStore.subscribe((v) => (isLogged = v));
 
 	const filterBtn: Array<{ id: string; text: string; fill: boolean }> = [
 		{ id: 'most-recent', text: 'Plus récents', fill: false },
@@ -15,7 +11,6 @@
 		{ id: 'most-viewed', text: 'Plus vues', fill: false },
 		{ id: 'most-liked', text: 'Plus likés', fill: false },
 		{ id: 'most-popular', text: 'Populaires', fill: false }
-		// { id: 'following', text: 'Abonnements' }
 	];
 	$: _valueInput = 'Plus récents';
 	$: _currentIndex = -1;
@@ -59,14 +54,9 @@
 	}
 
 	let searchTerm = '';
-	// function handleSubmit() {
-	// 	console.log('searchTerm', searchTerm);
-	// 	goto(`/explore?search=${searchTerm}`);
-	// }
 </script>
 
 <div class="m-auto w-11/12 tablet:w-1/3 mt-6">
-	<!-- <form method="post" on:submit|preventDefault={handleSubmit}> -->
 	<form>
 		<label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only"
 			>Rechercher ...</label

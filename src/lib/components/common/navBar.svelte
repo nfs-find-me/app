@@ -2,7 +2,6 @@
 	import Button from './button.svelte';
 
 	export let isLogged: Boolean;
-	export let userPicture: string;
 </script>
 
 <!-- Desktop Nav -->
@@ -30,7 +29,9 @@
 
 	<div class="flex gap-6 items-center justify-end w-1/3">
 		{#if isLogged}
-			<a href="/parameters"><i class="fa-solid fa-gear text-40 hover:cursor-pointer hover:text-blue" /></a>
+			<a href="/parameters"
+				><i class="fa-solid fa-gear text-40 hover:cursor-pointer hover:text-blue" /></a
+			>
 		{:else}
 			<Button link={'login'} fill={true} text={'Se connecter'} />
 			<Button link={'register'} fill={false} text={"S'inscrire"} />

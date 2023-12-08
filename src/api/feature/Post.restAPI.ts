@@ -47,15 +47,6 @@ export class PostRestApi extends BasePrivateRestApi {
 		throw response as Error;
 	}
 
-	public async create(formData: FormData) {
-		const response: Response | Error = await this.requestFormData(formData);
-
-		if (response instanceof Response) {
-			return response.json();
-		}
-		throw response as Error;
-	}
-
 	public async searchPost(search: string) {
 		const response: Response | Error = await this.request({
 			method: HTTP.GET,

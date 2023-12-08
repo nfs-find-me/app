@@ -29,7 +29,6 @@ export abstract class BasePublicRestApi extends BaseRestApi {
 		}
 	}
 	protected async post<T>(data: T, link = ''): Promise<T | Error> {
-		const type = BaseRestApi.getType(this.feature) as T;
 		const url = this.server + this.feature + '/' + link;
 		try {
 			const response = await fetch(url, {

@@ -1,13 +1,10 @@
 <script lang="ts">
-    import ClassementComponent from '$lib/components/classementComponent.svelte';
-    import { isLoggedStore } from '../../store/isLogged';
-    import type { PageData } from './$types';
+	import ClassementComponent from '$lib/components/classementComponent.svelte';
+	import type { PageData } from './$types';
 
+	let isLogged: boolean;
 
-    let isLogged: boolean;
-	const subscribe = isLoggedStore.subscribe((v) => (isLogged = v));
-    
-    export let data: PageData;
+	export let data: PageData;
 </script>
 
-<ClassementComponent {isLogged}/>
+<ClassementComponent {isLogged} />

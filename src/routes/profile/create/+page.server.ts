@@ -19,7 +19,6 @@ export const actions: Actions = {
 		const userId = cookiesHelper.getUserId(cookies);
 		let file = (await formData.get('file')?.valueOf()) as File;
 		const data: Post = new Post();
-		const geoloc: string = formData.get('geoloc') as string;
 		data.geolocation.posX = Number(formData.get('posX') as string);
 		data.geolocation.posY = Number(formData.get('posY') as string);
 		data.userId = userId;
@@ -36,7 +35,6 @@ export const actions: Actions = {
 		console.log({ sendFormData });
 		// @ts-ignore
 		console.log({ file: file, data: dataStringify });
-		const api = new PostRestApi(cookies);
 
 		if (userId) {
 			try {

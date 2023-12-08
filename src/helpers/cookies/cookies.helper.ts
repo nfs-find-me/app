@@ -55,7 +55,7 @@ export class CookiesHelper {
 		}
 	}
 
-	public setTokenCookies(jwt: string, refreshToken: string, expireTime: number) {
+	public setTokenCookies(jwt: string, refreshToken: string) {
 		this.cookies.set('jwt', jwt, {
 			httpOnly: true,
 			sameSite: 'lax',

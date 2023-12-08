@@ -9,28 +9,25 @@ export const load: PageServerLoad = (async ({ cookies, url }) => {
 	const postRestApi = new PostRestApi(cookies);
 	const cookiesHelper = new CookiesHelper(cookies);
 	const userId = cookiesHelper.getUserId(cookies);
-	const search = url.searchParams.get('search');
 	const filter = url.searchParams.get('filter');
 
 	if (userId) {
 		const user = await userRestApi.getOne(userId);
 		const posts = await postRestApi.getAll();
 		return { user: user.data, posts: posts.data };
-	
 	} else {
 		return { errorMessage: 'Vous devez être connecté.' };
 	}
 }) satisfies PageServerLoad;
 
 export const actions: Actions = {
-	default: async ({ cookies: cookies, request }) => {
+	default: async ({ cookies: cookies }) => {
 		console.log('request');
-		const userRestApi = new UserRestApi(cookies);
 		const postRestApi = new PostRestApi(cookies);
 		const cookiesHelper = new CookiesHelper(cookies);
 		const userId = cookiesHelper.getUserId(cookies);
 
-		const filter = ''
+		const filter = '';
 
 		switch (filter) {
 			case 'most-recent':

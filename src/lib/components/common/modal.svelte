@@ -9,12 +9,6 @@
 	export let buttonTextConfirm: string = 'valider';
 	export let buttonTextCancel: string = 'Annuler';
 
-	function sayHello() {
-		dispatch('confirm', {
-			text: 'Hello!'
-		});
-	}
-
 	function confirm() {
 		dispatch('confirm', true);
 		dialog.close();

@@ -21,9 +21,7 @@
 	let userPicture: string;
 	import type { User } from '../model/user/User';
 	export let data: LayoutData;
-    const user: User = data.user;
-	const subscribe = isLoggedStore.subscribe((v) => (isLogged = v));
-	const subscribeLoggingOut = isLoggingOutStore.subscribe((v) => (isLoggingOut = v));
+	const user: User = data.user;
 	// console.log(data.sendIsLoggedToFront);
 	$: isLogged, connected(data.sendIsLoggedToFront);
 	$: isLoggingOut, logoutServer();
@@ -44,8 +42,6 @@
 		// }
 		return isLogged && browser && isLoggingOut;
 	};
-	
-
 </script>
 
 <NavBar {isLogged} {userPicture} />

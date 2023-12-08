@@ -12,7 +12,6 @@ export class PostService {
 
 	public async getOne(postId: string) {
 		const api = new PostRestApi(this.cookies);
-		const cookiesHelper: CookiesHelper = new CookiesHelper(this.cookies);
 		console.log('postId : ', postId);
 		if (postId) {
 			try {
@@ -60,19 +59,6 @@ export class PostService {
 
 		if (userId) {
 			const posts = await api.getByCurrentUser(userId);
-			return { posts: posts.data };
-		} else {
-			return { errorMessage: 'Vous devez être connecté.' };
-		}
-	}
-
-	public async searchPost(search: string) {
-		const api = new PostRestApi(this.cookies);
-		const cookiesHelper = new CookiesHelper(this.cookies);
-		const userId = cookiesHelper.getUserId(this.cookies);
-
-		if (userId) {
-			const posts = await api.searchPost(search);
 			return { posts: posts.data };
 		} else {
 			return { errorMessage: 'Vous devez être connecté.' };
