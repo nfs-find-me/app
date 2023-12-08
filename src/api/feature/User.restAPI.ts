@@ -54,4 +54,16 @@ export class UserRestApi extends BasePrivateRestApi {
 		console.error('error restAPI', response as Error);
 		throw response as Error;
 	}
+
+	public async getAllRanks() { 
+		const response: Response | Error = await this.request({
+			method: HTTP.GET,
+			url: 'filterScore'
+		});
+
+		if (response instanceof Response) {
+			return response.json();
+		}
+		throw response as Error;
+	}
 }

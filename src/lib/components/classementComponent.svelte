@@ -37,7 +37,7 @@
 
 {#if isLogged}
 
-    <h3 class="w-11/12 my-10 mx-auto text-center text-xxl laptop:w-4/12">Vous êtes n°1 au classement général</h3>
+
 
     <div class="w-full flex justify-center items-center">
         <ul class="w-3/12 flex flex-row justify-center text-center">
