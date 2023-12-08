@@ -43,17 +43,14 @@ export class UserRestApi extends BasePrivateRestApi {
 		throw response as Error;
 	}
 	public async addPoints(id: string, points: number) {
-		console.log(id, points);
 		const response: Response | Error = await this.request({
 			method: HTTP.POST,
 			url: 'give_points/' + id,
 			customData: points
 		});
 		if (response instanceof Response) {
-			console.log('response restAPI', response.json());
 			return response.json();
 		}
-		console.log('error restAPI', response as Error);
 		throw response as Error;
 	}
 }

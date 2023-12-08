@@ -22,7 +22,6 @@
 	import type { User } from '../model/user/User';
 	export let data: LayoutData;
 	const user: User = data.user;
-	// console.log(data.sendIsLoggedToFront);
 	$: isLogged, connected(data.sendIsLoggedToFront);
 	$: isLoggingOut, logoutServer();
 

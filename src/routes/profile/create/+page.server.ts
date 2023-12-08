@@ -14,7 +14,6 @@ export const load = (async () => {
 export const actions: Actions = {
 	default: async ({ cookies: cookies, request }) => {
 		const formData = await request.formData();
-		console.log({ formData });
 		const cookiesHelper = new CookiesHelper(cookies);
 		const userId = cookiesHelper.getUserId(cookies);
 		let file = (await formData.get('file')?.valueOf()) as File;
@@ -32,7 +31,6 @@ export const actions: Actions = {
 		sendFormData.append('file', file);
 		sendFormData.append('data', dataStringify);
 
-		console.log({ sendFormData });
 		// @ts-ignore
 		console.log({ file: file, data: dataStringify });
 
@@ -40,7 +38,7 @@ export const actions: Actions = {
 			try {
 				await new PostService(cookies).sendFormData(sendFormData);
 			} catch (error) {
-				console.log({ error });
+				console.error({ error });
 			}
 		} else {
 			return { errorMessage: 'Vous devez être connecté.' };

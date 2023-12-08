@@ -49,7 +49,6 @@ export class CookiesHelper {
 			this.cookies.delete('jwt', { path: '/' });
 			this.cookies.delete('refresh', { path: '/' });
 			this.cookies.delete('userId', { path: '/' });
-			console.log(this.cookies.get('refresh'));
 		} catch (e) {
 			console.error('pb lors de suppression');
 		}
@@ -71,7 +70,6 @@ export class CookiesHelper {
 	}
 
 	public async refreshCookies(cookies: Cookies) {
-		console.log('refresh cookies');
 		const login = cookies.get('login');
 		const refreshToken = cookies.get('refresh');
 		if (login === undefined || refreshToken === undefined) {

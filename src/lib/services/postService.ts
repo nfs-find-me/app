@@ -12,11 +12,9 @@ export class PostService {
 
 	public async getOne(postId: string) {
 		const api = new PostRestApi(this.cookies);
-		console.log('postId : ', postId);
 		if (postId) {
 			try {
 				const user = await api.getOne(postId);
-				console.log('post service : ', { post: user.data });
 				return { post: user.data };
 			} catch (e) {
 				console.error('erreur - ', e);

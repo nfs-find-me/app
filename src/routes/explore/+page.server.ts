@@ -22,7 +22,6 @@ export const load: PageServerLoad = (async ({ cookies, url }) => {
 
 export const actions: Actions = {
 	default: async ({ cookies: cookies }) => {
-		console.log('request');
 		const postRestApi = new PostRestApi(cookies);
 		const cookiesHelper = new CookiesHelper(cookies);
 		const userId = cookiesHelper.getUserId(cookies);
