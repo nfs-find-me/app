@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { GeoJSON, Layer, LineLayer, MapLibre, Marker } from 'svelte-maplibre';
+	import { FullscreenControl, GeoJSON, Layer, LineLayer, MapLibre, Marker } from 'svelte-maplibre';
 	import type { LngLatLike, LngLatBoundsLike } from 'svelte-maplibre';
 	import type { PostType } from '../../store/types.js';
 	import { enhance } from '$app/forms';
@@ -11,7 +11,6 @@
 		[-6.352731824594258, 42.53157074703472], // Coin inférieur gauche de la France
 		[12.1532244672579, 51.38478063560865] // Coin supérieur droit de la France
 	];
-
 
 	function handleDrag(e: any) {
 		markerCoords = e.detail.lngLat;
@@ -99,12 +98,8 @@
 		center={markerCoords}
 		zoom={3}
 		class="w-full h-full rounded-sm relative"
-		style={'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json'}
-    style={'https://api.maptiler.com/maps/streets/style.json?key=get_your_own_OpIi9ZULNHzrESv6T2vL'}
+		style={'https://api.maptiler.com/maps/streets/style.json?key=get_your_own_OpIi9ZULNHzrESv6T2vL'}
 		maxBounds={franceBounds}
-		on:load={() => {
-			post;
-		}}
 	>
 		<FullscreenControl position="top-right" />
 		{#if showAnswer === true}
