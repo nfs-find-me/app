@@ -16,7 +16,6 @@ export const load: PageServerLoad = (async ({ cookies, url }) => {
 		const user = await userRestApi.getOne(userId);
 		const posts = await postRestApi.getAll();
 		return { user: user.data, posts: posts.data };
-	
 	} else {
 		return { errorMessage: 'Vous devez être connecté.' };
 	}
@@ -24,13 +23,12 @@ export const load: PageServerLoad = (async ({ cookies, url }) => {
 
 export const actions: Actions = {
 	default: async ({ cookies: cookies, request }) => {
-		console.log('request');
 		const userRestApi = new UserRestApi(cookies);
 		const postRestApi = new PostRestApi(cookies);
 		const cookiesHelper = new CookiesHelper(cookies);
 		const userId = cookiesHelper.getUserId(cookies);
 
-		const filter = ''
+		const filter = '';
 
 		switch (filter) {
 			case 'most-recent':

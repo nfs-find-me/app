@@ -3,14 +3,12 @@
 	import type { PostType } from '../../store/types';
 	import { onMount } from 'svelte';
 	export let post: PostType;
-	console.log(post);
 	let load = false;
 	let showAnswer = false;
 	let showInfo = false;
 	let infoBox: Element;
 	let infoBoxHeight: number;
 	onMount(() => {
-		console.log(infoBox.clientHeight);
 		infoBoxHeight = infoBox.clientHeight + 12;
 	});
 </script>

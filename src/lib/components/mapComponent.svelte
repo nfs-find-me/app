@@ -19,7 +19,6 @@
 
 	function getLine() {
 		const markerCoordsArray = markerCoords as Array<number>;
-		console.log(markerCoordsArray);
 		const geoJsonFeature: GeoJSON.Feature = {
 			type: 'Feature',
 			geometry: {
@@ -43,12 +42,6 @@
 	let pointValue: number;
 	function handleSubmit() {
 		const markerCoordsArray = markerCoords as Array<number>;
-		console.log(
-			markerCoordsArray,
-			post.geolocation?.posY as number,
-			post.geolocation?.posX as number
-		);
-		console.log(showAnswer);
 		const distance = distanceInKmBetweenEarthCoordinates(
 			markerCoordsArray[1],
 			markerCoordsArray[0],
@@ -59,8 +52,6 @@
 		Math.round(maxPoints - distance) <= 0
 			? (points = 0)
 			: (points = Math.round(maxPoints - distance));
-		console.log('distance (km) : ', distance);
-		console.log('points : ', points);
 		pointValue = points;
 	}
 
@@ -92,7 +83,6 @@
 			lngLat={markerCoords}
 			draggable={!showAnswer}
 			on:drag={(e) => {
-				console.log('drag', e.detail.lngLat);
 				handleDrag(e);
 			}}
 			class="w-10 h-10 transition-all text-black rounded-full grid place-items-center"

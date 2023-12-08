@@ -21,10 +21,9 @@
 	let userPicture: string;
 	import type { User } from '../model/user/User';
 	export let data: LayoutData;
-    const user: User = data.user;
+	const user: User = data.user;
 	const subscribe = isLoggedStore.subscribe((v) => (isLogged = v));
 	const subscribeLoggingOut = isLoggingOutStore.subscribe((v) => (isLoggingOut = v));
-	// console.log(data.sendIsLoggedToFront);
 	$: isLogged, connected(data.sendIsLoggedToFront);
 	$: isLoggingOut, logoutServer();
 
@@ -37,15 +36,8 @@
 	}
 
 	const canLogout = () => {
-		// if(isLogged && user.avatar != null){
-		// 	userPicture = user.avatar;
-		// }else{
-		// 	userPicture = "/user_default.webp";
-		// }
 		return isLogged && browser && isLoggingOut;
 	};
-	
-
 </script>
 
 <NavBar {isLogged} {userPicture} />

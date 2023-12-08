@@ -9,8 +9,6 @@
 		throw error(404, 'Not found');
 	}
 	const post: PostType = data.post.post;
-	console.log(data);
-	console.log(post);
 </script>
 
 <PostComponent {post} />
