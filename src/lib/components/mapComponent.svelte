@@ -66,11 +66,15 @@
 	let pointValue: number;
 	function handleSubmit() {
 		const markerCoordsArray = markerCoords as Array<number>;
-		showAnswer = true;
+		console.log(
+			markerCoordsArray,
+			post.geolocation?.posY as number,
+			post.geolocation?.posX as number
+		);
 		console.log(showAnswer);
 		const distance = distanceInKmBetweenEarthCoordinates(
-			markerCoordsArray[0],
 			markerCoordsArray[1],
+			markerCoordsArray[0],
 			post.geolocation?.posY as number,
 			post.geolocation?.posX as number
 		);
@@ -81,31 +85,38 @@
 			: (points = Math.round(maxPoints - distance));
 		console.log('distance (km) : ', distance);
 		console.log('points : ', points);
-		console.log('give points...');
 		pointValue = points;
-		// const userRestApi = new UserRestApi(cookies);
-		// userRestApi.addPoints(l);
 	}
 
 	$: showAnswer, showAnswer ? handleSubmit() : null;
 </script>
 
 <div
-	class={'w-full h-full z-10 rounded-sm' +
+	class={'w-full h-full z-8 rounded-sm' +
 		(showAnswer ? ' bg-black bg-opacity-50 p-6' : ' bg-white')}
 >
 	<MapLibre
 		center={markerCoords}
 		zoom={3}
-		class="w-full h-full rounded-sm"
-		standardControls
-		style={'https://api.maptiler.com/maps/streets/style.json?key=get_your_own_OpIi9ZULNHzrESv6T2vL'}
+		class="w-full h-full rounded-sm relative"
+		style={'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json'}
+    style={'https://api.maptiler.com/maps/streets/style.json?key=get_your_own_OpIi9ZULNHzrESv6T2vL'}
 		maxBounds={franceBounds}
 		on:load={() => {
 			post;
 		}}
 	>
+		<FullscreenControl position="top-right" />
+		{#if showAnswer === true}
+			<div
+				class="absolute shadow-md top-1/4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-50 text-white font-bold text-center p-4 rounded-md"
+			>
+				<p class="text-2xl">Points marqués :</p>
+				<p class="text-4xl">{pointValue}</p>
+			</div>
+		{/if}
 		<Marker
+			offset={[0, -16]}
 			lngLat={markerCoords}
 			draggable={!showAnswer}
 			on:drag={(e) => {
@@ -129,23 +140,35 @@
 			>
 
 			<Marker
+				offset={[0, -16]}
 				lngLat={[post.geolocation?.posX, post.geolocation?.posY]}
-				class="w-8 h-8 bg-red-300 text-black rounded-full grid place-items-center"
+				class="w-8 h-8 bg-red-300 text-black rounded-full grid place-items-center relative"
 			>
+				<span
+					class="text-lg bg-blue bg-opacity-50 rounded-sm py-1 px-2 font-semibold absolute bottom-full"
+				>
+					Réponse
+				</span>
+
 				<img src="/favicon.svg" class="h-8" alt="marker" />
 			</Marker>
 		{/if}
 	</MapLibre>
 	{#if !showAnswer}
-		<form class="bg-white p-2 flex" method="post" use:enhance>
-			<input name="points" type="text" value={pointValue} />
-			<button
-				type="submit"
-				class="border-2 px-4 py-1 mx-auto rounded-lg font-bold"
-				on:click={() => {
+		<form
+			class="bg-white p-2 flex"
+			method="post"
+			use:enhance={() => {
+				return async ({ update }) => {
 					showAnswer = true;
-				}}>deviner</button
-			>
+					update({ reset: false });
+				};
+			}}
+		>
+			<input name="lng1lat1" class="hidden" type="text" value={markerCoords.toString()} />
+			<input name="lat2" class="hidden" type="text" bind:value={post.geolocation.posY} />
+			<input name="lng2" class="hidden" type="text" bind:value={post.geolocation.posX} />
+			<button type="submit" class="border-2 px-4 py-1 mx-auto rounded-lg font-bold">deviner</button>
 		</form>
 	{/if}
 </div>
