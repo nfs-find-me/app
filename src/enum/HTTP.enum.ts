@@ -1,4 +1,7 @@
 export enum HTTP {
 	GET = 'GET',
-	POST = 'POST'
+	POST = 'POST',
+	PATCH = 'PATCH',
+	PUT = 'PUT',
+	DELETE = 'DELETE'
 }
