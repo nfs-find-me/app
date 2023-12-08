@@ -12,10 +12,8 @@ export const load: PageServerLoad = (async ({ cookies }) => {
 
 export const actions: Actions = {
 	banUser: async ({ cookies: cookies, request: request }) => {
-		console.log('banUser', request);
 		const data = await request.formData();
 		const userId = data.get('userId') as string;
-		console.log('userId', userId);
 		new UserService(cookies).banUser(userId);
 	}
 };

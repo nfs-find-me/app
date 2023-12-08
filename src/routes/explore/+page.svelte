@@ -20,7 +20,6 @@
 	$: _valueInput = 'Plus récents';
 	$: _currentIndex = -1;
 	function handleClick(valueInput: string, currentIndex: number) {
-		console.log({ posts });
 		_valueInput = valueInput;
 		if (_currentIndex != currentIndex) {
 			_currentIndex = currentIndex;
@@ -59,10 +58,6 @@
 	}
 
 	let searchTerm = '';
-	// function handleSubmit() {
-	// 	console.log('searchTerm', searchTerm);
-	// 	goto(`/explore?search=${searchTerm}`);
-	// }
 </script>
 
 <div class="m-auto w-11/12 tablet:w-1/3 mt-6">
