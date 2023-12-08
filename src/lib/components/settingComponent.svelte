@@ -37,13 +37,6 @@
 					<i class="fa-regular fa-user text-xl text-text-contrast font-bold" />
 					<span class="text-lg text-text-contrast">Mon compte</span>
 				</li>
-				<li
-					on:click={() => updateOngletInfo(2, 'Sécurité')}
-					class="p-4 flex flex-col laptop:flex-row gap-4 items-center cursor-pointer"
-				>
-					<i class="fa-solid fa-key text-xl text-text-contrast" />
-					<span class="text-lg text-text-contrast">Sécurité</span>
-				</li>
 			</ul>
 
 			<div class="p-2 laptop:p-8 flex flex-col laptop:flex-row gap-4 items-center cursor-pointer">
